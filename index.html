@@ -96,20 +96,6 @@
       overflow: visible;
     }
 
-    /*
-      هر چهار بخش در یک مسیر مشترک قرار دارند.
-
-      کل دایره = 360 درجه
-      فاصله‌ها = 4 × 5 = 20 درجه
-      فضای رنگی = 340 درجه
-
-      نسبت رنگ‌ها:
-      عیار = 204°
-      آوند = 68°
-      فزر = 34°
-      سهام = 34°
-    */
-
     .donut-segment {
       fill: none;
       stroke-width: 48;
@@ -641,19 +627,28 @@
             aria-label="نمودار پرتفوی سال ۱۴۰۵">
 
             <!--
-              مسیرها با pathLength=360
-              بنابراین تمام اعداد مستقیماً درجه هستند.
+              کل دایره: 360 درجه
 
-              رنگ‌ها:
-              204° + 68° + 34° + 34° = 340°
+              فاصله سفید:
+              2.5 درجه × 4 = 10 درجه
 
-              فاصله‌های سفید:
-              5° + 5° + 5° + 5° = 20°
+              فضای رنگی:
+              350 درجه
 
-              مجموع = 360°
+              عیار:
+              60% از 350 = 210 درجه
+
+              آوند:
+              20% از 350 = 70 درجه
+
+              فزر:
+              10% از 350 = 35 درجه
+
+              سهام:
+              10% از 350 = 35 درجه
             -->
 
-            <!-- عیار: 204° -->
+            <!-- عیار -->
             <circle
               class="donut-segment"
               cx="110"
@@ -661,12 +656,12 @@
               r="86"
               pathLength="360"
               stroke="#f5c542"
-              stroke-dasharray="204 156"
+              stroke-dasharray="210 150"
               stroke-dashoffset="0"
               transform="rotate(-90 110 110)">
             </circle>
 
-            <!-- آوند: شروع بعد از ۵° فاصله -->
+            <!-- آوند -->
             <circle
               class="donut-segment"
               cx="110"
@@ -674,12 +669,12 @@
               r="86"
               pathLength="360"
               stroke="#3b82f6"
-              stroke-dasharray="68 292"
-              stroke-dashoffset="-209"
+              stroke-dasharray="70 290"
+              stroke-dashoffset="-212.5"
               transform="rotate(-90 110 110)">
             </circle>
 
-            <!-- فزر: شروع بعد از ۵° فاصله -->
+            <!-- فزر -->
             <circle
               class="donut-segment"
               cx="110"
@@ -687,12 +682,12 @@
               r="86"
               pathLength="360"
               stroke="#8b5a2b"
-              stroke-dasharray="34 326"
-              stroke-dashoffset="-282"
+              stroke-dasharray="35 325"
+              stroke-dashoffset="-285"
               transform="rotate(-90 110 110)">
             </circle>
 
-            <!-- سهام: شروع بعد از ۵° فاصله -->
+            <!-- سهام -->
             <circle
               class="donut-segment"
               cx="110"
@@ -700,8 +695,8 @@
               r="86"
               pathLength="360"
               stroke="#ef4444"
-              stroke-dasharray="34 326"
-              stroke-dashoffset="-321"
+              stroke-dasharray="35 325"
+              stroke-dashoffset="-325"
               transform="rotate(-90 110 110)">
             </circle>
 
