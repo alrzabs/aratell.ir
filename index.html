@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f97316">
-
   <title>علیرضا عباسی | آموزش بورس</title>
 
   <link rel="icon"
@@ -111,15 +110,13 @@
       stroke-linecap: butt;
     }
 
-    /* فضای خالی وسط نمودار */
-
     .donut::after {
       content: "";
 
       position: absolute;
 
       width: 56.36%;
-      height: 56.36%;
+      aspect-ratio: 1 / 1;
 
       background: #ffffff;
 
@@ -133,8 +130,6 @@
       box-shadow:
         0 1px 4px rgba(17, 24, 39, 0.03);
     }
-
-    /* نوشته وسط نمودار */
 
     .donut-center {
       position: absolute;
@@ -185,7 +180,7 @@
 
       gap: 10px 20px;
 
-      margin-top: 3px;
+      margin-top: 12px;
     }
 
     .legend-item {
@@ -565,14 +560,53 @@
         translateY(-3px) scale(1.08);
     }
 
+    /* =========================
+       موبایل
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      body {
+        padding: 25px 12px 25px;
+      }
+
+      h1 {
+        font-size: 27px;
+
+        margin-bottom: 32px;
+      }
+
+      .card {
+        padding: 19px 15px;
+
+        border-radius: 18px;
+      }
+
+      .card h2 {
+        font-size: 18px;
+      }
+
+      ol li {
+        font-size: 14px;
+
+        padding: 10px;
+      }
+
+      .button-with-icon {
+        max-width: 300px;
+      }
+
+      .social-icons a {
+        font-size: 34px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
   <div class="container">
-
-    <!-- عنوان -->
 
     <h1>
       آموزش بورس
@@ -582,9 +616,7 @@
       مسیر منظم برای سرمایه‌گذاری
     </div>
 
-    <!-- =========================
-         نمودار پرتفوی
-    ========================= -->
+    <!-- نمودار پرتفوی -->
 
     <div class="portfolio-chart">
 
@@ -597,8 +629,6 @@
             preserveAspectRatio="xMidYMid meet"
             aria-label="نمودار پرتفوی">
 
-            <!-- زمینه سفید -->
-
             <circle
               class="donut-track"
               cx="110"
@@ -606,14 +636,7 @@
               r="86">
             </circle>
 
-            <!--
-              ۶۰٪
-              ۲۰٪
-              ۱۰٪
-              ۱۰٪
-
-              بدون فاصله بین رنگ‌ها
-            -->
+            <!-- عیار ۶۰٪ -->
 
             <circle
               class="donut-segment"
@@ -621,10 +644,13 @@
               cx="110"
               cy="110"
               r="86"
-              stroke-dasharray="324.09 216.06"
+              pathLength="100"
+              stroke-dasharray="60 40"
               stroke-dashoffset="0"
               transform="rotate(-90 110 110)">
             </circle>
+
+            <!-- آوند ۲۰٪ -->
 
             <circle
               class="donut-segment"
@@ -632,10 +658,13 @@
               cx="110"
               cy="110"
               r="86"
-              stroke-dasharray="108.03 432.12"
-              stroke-dashoffset="-324.09"
+              pathLength="100"
+              stroke-dasharray="20 80"
+              stroke-dashoffset="-60"
               transform="rotate(-90 110 110)">
             </circle>
+
+            <!-- فزر ۱۰٪ -->
 
             <circle
               class="donut-segment"
@@ -643,10 +672,13 @@
               cx="110"
               cy="110"
               r="86"
-              stroke-dasharray="54.015 486.135"
-              stroke-dashoffset="-432.12"
+              pathLength="100"
+              stroke-dasharray="10 90"
+              stroke-dashoffset="-80"
               transform="rotate(-90 110 110)">
             </circle>
+
+            <!-- سهام ۱۰٪ -->
 
             <circle
               class="donut-segment"
@@ -654,8 +686,9 @@
               cx="110"
               cy="110"
               r="86"
-              stroke-dasharray="54.015 486.135"
-              stroke-dashoffset="-486.135"
+              pathLength="100"
+              stroke-dasharray="10 90"
+              stroke-dashoffset="-90"
               transform="rotate(-90 110 110)">
             </circle>
 
@@ -729,9 +762,7 @@
 
     </div>
 
-    <!-- =========================
-         سجام
-    ========================= -->
+    <!-- سجام -->
 
     <section class="card">
 
@@ -756,42 +787,63 @@
         <ol>
 
           <li>
+
             <span>
+
               <a
                 href="https://profilesejam.csdiran.ir/session"
                 target="_blank"
                 rel="noopener noreferrer"
                 onclick="event.stopPropagation();">
+
                 ثبت نام/ورود
+
               </a>
+
               به سجام
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               <a
                 href="https://profilesejam.csdiran.ir/msisdn"
                 target="_blank"
                 rel="noopener noreferrer"
-                onclick="event.stopPropagation;">
+                onclick="event.stopPropagation();">
+
                 تغییر
+
               </a>
+
               شماره موبایل در سجام
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               <a
                 href="https://profilesejam.csdiran.ir/RecoveryTraceCode"
                 target="_blank"
                 rel="noopener noreferrer"
                 onclick="event.stopPropagation();">
+
                 مشاهده
+
               </a>
+
               کد پیگیری سجام
+
             </span>
+
           </li>
 
         </ol>
@@ -800,9 +852,7 @@
 
     </section>
 
-    <!-- =========================
-         ذینفعان بازار سرمایه
-    ========================= -->
+    <!-- ذینفعان بازار سرمایه -->
 
     <section class="card">
 
@@ -827,29 +877,43 @@
         <ol>
 
           <li>
+
             <span>
+
               <a
                 href="https://dara.csdiran.ir/register"
                 target="_blank"
                 rel="noopener noreferrer"
                 onclick="event.stopPropagation();">
+
                 ثبت نام
+
               </a>
+
               در سامانه دارا
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               <a
                 href="https://dara.csdiran.ir/login"
                 target="_blank"
                 rel="noopener noreferrer"
                 onclick="event.stopPropagation();">
+
                 ورود
+
               </a>
+
               به سامانه دارا
+
             </span>
+
           </li>
 
         </ol>
@@ -858,9 +922,7 @@
 
     </section>
 
-    <!-- =========================
-         کارگزاری مفید
-    ========================= -->
+    <!-- کارگزاری مفید -->
 
     <section class="card">
 
@@ -885,50 +947,75 @@
         <ol>
 
           <li>
+
             <span>
+
               <a
                 href="https://my.emofid.com/register"
                 target="_blank"
                 rel="noopener noreferrer"
                 onclick="event.stopPropagation();">
+
                 عضویت
+
               </a>
+
               در کارگزاری مفید
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               فعال‌سازی خرید عیار (طلا) به‌جای دریافت سود ریالی در مانده حساب (صندوق حامی)
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               فعال‌سازی خرید اتوماتیک عرضه اولیه
+
             </span>
+
           </li>
 
           <li>
+
             <span>
               دریافت مفید کارت
             </span>
+
           </li>
 
           <li>
+
             <span>
               دریافت جت کارت
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               حفظ روزانه حداقل موجودی
+
               <span class="amount">
                 ۵۰٬۰۰۰٬۰۰۰ ریال
               </span>
+
               در قدرت خرید
+
             </span>
+
           </li>
 
         </ol>
@@ -937,9 +1024,7 @@
 
     </section>
 
-    <!-- =========================
-         سرمایه گذاری های مستمر
-    ========================= -->
+    <!-- سرمایه گذاری های مستمر -->
 
     <section class="card">
 
@@ -964,27 +1049,39 @@
         <ol>
 
           <li>
+
             <span>
+
               روزانه عیار
+
               <span class="amount">
                 (حداقل ۲۰۰ هزار تومان)
               </span>
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               روزانه صندوق امید توسعه
+
               <span class="amount">
                 (حداقل ۲۰۰ هزار تومان)
               </span>
+
             </span>
+
           </li>
 
           <li>
+
             <span>
               همه عرضه‌ اولیه ها
             </span>
+
           </li>
 
         </ol>
@@ -993,13 +1090,9 @@
 
     </section>
 
-    <!-- خط جداکننده -->
-
     <hr>
 
-    <!-- =========================
-         نوبیتکس
-    ========================= -->
+    <!-- نوبیتکس -->
 
     <a
       class="button-with-icon"
@@ -1017,9 +1110,7 @@
 
     </a>
 
-    <!-- =========================
-         شبکه‌های اجتماعی
-    ========================= -->
+    <!-- شبکه‌های اجتماعی -->
 
     <footer>
 
@@ -1066,10 +1157,6 @@
     </footer>
 
   </div>
-
-  <!-- =========================
-       باز و بسته شدن کارت‌ها
-  ========================= -->
 
   <script>
 
