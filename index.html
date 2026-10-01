@@ -54,7 +54,7 @@
       font-size: 14px;
     }
 
-    /* کارت‌ها */
+    /* کارت */
     .card {
       width: 100%;
       background: #ffffff;
@@ -64,13 +64,21 @@
       text-align: right;
       box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
       border: 1px solid #eeeeee;
+      cursor: pointer;
+      transition: box-shadow 0.25s ease;
     }
 
+    .card:hover {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    /* سربرگ کارت */
     .card-header {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 18px;
+      margin-bottom: 0;
+      user-select: none;
     }
 
     .card-icon {
@@ -90,6 +98,35 @@
       margin: 0;
       font-size: 19px;
       color: #111827;
+      flex: 1;
+    }
+
+    /* فلش باز و بسته شدن */
+    .card-arrow {
+      color: #9ca3af;
+      font-size: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .card.open .card-arrow {
+      transform: rotate(180deg);
+    }
+
+    /* محتوای کارت */
+    .card-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition:
+        max-height 0.4s ease,
+        opacity 0.25s ease,
+        margin-top 0.3s ease;
+    }
+
+    .card.open .card-content {
+      max-height: 1000px;
+      opacity: 1;
+      margin-top: 18px;
     }
 
     /* لیست */
@@ -110,6 +147,7 @@
       border-radius: 12px;
       line-height: 1.9;
       font-size: 14px;
+      cursor: default;
     }
 
     ol li:last-child {
@@ -160,7 +198,6 @@
       color: #ea580c;
     }
 
-    /* تأکید روی اعداد */
     .amount {
       font-weight: 800;
       color: #ea580c;
@@ -280,104 +317,136 @@
       مسیر منظم برای سرمایه‌گذاری
     </div>
 
-    <!-- پیش نیازها -->
+
+    <!-- ==================== پیش‌نیازها ==================== -->
+
     <section class="card">
 
       <div class="card-header">
+
         <div class="card-icon">
           <i class="fa-solid fa-list-check"></i>
         </div>
 
         <h2>پیش‌نیازها</h2>
+
+        <div class="card-arrow">
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
       </div>
 
-      <ol>
 
-        <li>
-          <span>
-            <a href="https://my.emofid.com/register"
-              target="_blank"
-              rel="noopener noreferrer">عضویت</a>
-            در کارگزاری مفید
-          </span>
-        </li>
+      <div class="card-content">
 
-        <li>
-          <span>
-            فعال‌سازی خرید عیار (طلا) به‌جای دریافت سود ریالی در مانده حساب (صندوق حامی)
-          </span>
-        </li>
+        <ol>
 
-        <li>
-          <span>
-            فعال‌سازی خرید اتوماتیک عرضه اولیه
-          </span>
-        </li>
+          <li>
+            <span>
+              <a href="https://my.emofid.com/register"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="event.stopPropagation();">
+                عضویت
+              </a>
+              در کارگزاری مفید
+            </span>
+          </li>
 
-        <li>
-          <span>
-            دریافت مفید کارت
-          </span>
-        </li>
+          <li>
+            <span>
+              فعال‌سازی خرید عیار (طلا) به‌جای دریافت سود ریالی در مانده حساب (صندوق حامی)
+            </span>
+          </li>
 
-        <li>
-          <span>
-            دریافت جت کارت
-          </span>
-        </li>
+          <li>
+            <span>
+              فعال‌سازی خرید اتوماتیک عرضه اولیه
+            </span>
+          </li>
 
-        <li>
-          <span>
-            حفظ روزانه حداقل موجودی
-            <span class="amount">۵۰٬۰۰۰٬۰۰۰ ریال</span>
-            در قدرت خرید
-          </span>
-        </li>
+          <li>
+            <span>
+              دریافت مفید کارت
+            </span>
+          </li>
 
-      </ol>
+          <li>
+            <span>
+              دریافت جت کارت
+            </span>
+          </li>
+
+          <li>
+            <span>
+              حفظ روزانه حداقل موجودی
+              <span class="amount">۵۰٬۰۰۰٬۰۰۰ ریال</span>
+              در قدرت خرید
+            </span>
+          </li>
+
+        </ol>
+
+      </div>
 
     </section>
 
-    <!-- سرمایه گذاری های منظم -->
+
+    <!-- ==================== سرمایه‌گذاری‌های منظم ==================== -->
+
     <section class="card">
 
       <div class="card-header">
+
         <div class="card-icon">
           <i class="fa-solid fa-chart-line"></i>
         </div>
 
         <h2>سرمایه‌گذاری‌های منظم</h2>
+
+        <div class="card-arrow">
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
       </div>
 
-      <ol>
 
-        <li>
-          <span>
-            روزانهٔ عیار
-            <span class="amount">(حداقل ۲۰۰ هزار تومان)</span>
-          </span>
-        </li>
+      <div class="card-content">
 
-        <li>
-          <span>
-            روزانهٔ صندوق امید توسعه
-            <span class="amount">(حداقل ۲۰۰ هزار تومان)</span>
-          </span>
-        </li>
+        <ol>
 
-        <li>
-          <span>
-            همهٔ عرضه‌های اولیه
-          </span>
-        </li>
+          <li>
+            <span>
+              روزانهٔ عیار
+              <span class="amount">(حداقل ۲۰۰ هزار تومان)</span>
+            </span>
+          </li>
 
-      </ol>
+          <li>
+            <span>
+              روزانهٔ صندوق امید توسعه
+              <span class="amount">(حداقل ۲۰۰ هزار تومان)</span>
+            </span>
+          </li>
+
+          <li>
+            <span>
+              همهٔ عرضه‌های اولیه
+            </span>
+          </li>
+
+        </ol>
+
+      </div>
 
     </section>
 
+
     <hr>
 
-    <!-- نوبیتکس -->
+
+    <!-- ==================== نوبیتکس ==================== -->
+
     <a class="button-with-icon"
       href="https://nobitex.ir/signup/?refcode=332524"
       target="_blank"
@@ -391,7 +460,9 @@
 
     </a>
 
-    <!-- شبکه های اجتماعی -->
+
+    <!-- ==================== شبکه‌های اجتماعی ==================== -->
+
     <footer>
 
       <div class="social-icons">
@@ -422,6 +493,19 @@
     </footer>
 
   </div>
+
+
+  <!-- ==================== باز و بسته شدن کارت‌ها ==================== -->
+
+  <script>
+    document.querySelectorAll(".card").forEach(function(card) {
+
+      card.querySelector(".card-header").addEventListener("click", function() {
+        card.classList.toggle("open");
+      });
+
+    });
+  </script>
 
 </body>
 </html>
