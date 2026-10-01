@@ -8,11 +8,9 @@
 
   <title>علیرضا عباسی | آموزش بورس</title>
 
-  <!-- آیکن سایت -->
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐢</text></svg>">
 
-  <!-- فونت Vazirmatn -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -20,7 +18,6 @@
     href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
-  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -83,31 +80,63 @@
       justify-content: center;
     }
 
-    .donut {
+    /*
+      نمودار SVG
+      بین قسمت‌ها فاصله وجود دارد
+      و ابتدا و انتهای هر قسمت کمی گرد است.
+    */
+
+    .donut-svg {
       width: 220px;
       height: 220px;
 
-      border-radius: 50%;
+      transform: rotate(-90deg);
 
-      background:
-        conic-gradient(
-          #f5c542 0deg 216deg,
-          #3b82f6 216deg 288deg,
-          #8b5a2b 288deg 324deg,
-          #ef4444 324deg 360deg
-        );
+      overflow: visible;
 
-      position: relative;
-
-      box-shadow:
-        0 7px 22px rgba(17, 24, 39, 0.08);
+      filter: drop-shadow(
+        0 7px 15px rgba(17, 24, 39, 0.07)
+      );
     }
 
-    /* فضای خالی وسط نمودار */
+    .donut-segment {
+      fill: none;
 
-    .donut::after {
-      content: "";
+      stroke-width: 28;
 
+      stroke-linecap: round;
+
+      vector-effect: non-scaling-stroke;
+    }
+
+    .segment-gold {
+      stroke: #f5c542;
+      stroke-dasharray: 365 263.3;
+      stroke-dashoffset: 0;
+    }
+
+    .segment-blue {
+      stroke: #3b82f6;
+      stroke-dasharray: 121.7 506.6;
+      stroke-dashoffset: -370;
+    }
+
+    .segment-brown {
+      stroke: #8b5a2b;
+      stroke-dasharray: 60.8 567.5;
+      stroke-dashoffset: -496.7;
+    }
+
+    .segment-red {
+      stroke: #ef4444;
+      stroke-dasharray: 60.8 567.5;
+      stroke-dashoffset: -562.5;
+    }
+
+
+    /* فضای سفید وسط */
+
+    .donut-hole {
       position: absolute;
 
       width: 124px;
@@ -124,7 +153,10 @@
 
       box-shadow:
         0 1px 4px rgba(17, 24, 39, 0.03);
+
+      pointer-events: none;
     }
+
 
     /* نوشته وسط نمودار */
 
@@ -164,6 +196,7 @@
 
       margin-top: -2px;
     }
+
 
     /* توضیحات پایین نمودار */
 
@@ -232,8 +265,6 @@
 
       transition:
         box-shadow 0.25s ease;
-
-      /* جلوگیری از انتخاب و هایلایت آبی */
 
       -webkit-user-select: none;
       user-select: none;
@@ -640,7 +671,50 @@
 
       <div class="donut-wrap">
 
-        <div class="donut"></div>
+        <!-- نمودار با فاصله بین بخش‌ها -->
+
+        <svg
+          class="donut-svg"
+          viewBox="0 0 220 220"
+          aria-label="نمودار پرتفوی سال ۱۴۰۵">
+
+          <circle
+            class="donut-segment segment-gold"
+            cx="110"
+            cy="110"
+            r="100">
+          </circle>
+
+          <circle
+            class="donut-segment segment-blue"
+            cx="110"
+            cy="110"
+            r="100">
+          </circle>
+
+          <circle
+            class="donut-segment segment-brown"
+            cx="110"
+            cy="110"
+            r="100">
+          </circle>
+
+          <circle
+            class="donut-segment segment-red"
+            cx="110"
+            cy="110"
+            r="100">
+          </circle>
+
+        </svg>
+
+
+        <!-- فضای سفید وسط -->
+
+        <div class="donut-hole"></div>
+
+
+        <!-- نوشته وسط -->
 
         <div class="donut-center">
 
@@ -840,7 +914,6 @@
 
         <ol>
 
-
           <li>
 
             <span>
@@ -882,7 +955,6 @@
 
           </li>
 
-
         </ol>
 
       </div>
@@ -920,7 +992,6 @@
       <div class="card-content">
 
         <ol>
-
 
           <li>
 
@@ -1003,7 +1074,6 @@
 
           </li>
 
-
         </ol>
 
       </div>
@@ -1041,7 +1111,6 @@
       <div class="card-content">
 
         <ol>
-
 
           <li>
 
@@ -1082,7 +1151,6 @@
             </span>
 
           </li>
-
 
         </ol>
 
