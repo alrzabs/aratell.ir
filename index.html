@@ -8,11 +8,9 @@
 
   <title>علیرضا عباسی | آموزش بورس</title>
 
-  <!-- آیکن سایت -->
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐢</text></svg>'">
 
-  <!-- فونت Vazirmatn -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -20,7 +18,6 @@
     href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
-  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -87,8 +84,9 @@
       height: 220px;
       position: relative;
 
-      filter:
-        drop-shadow(0 7px 22px rgba(17, 24, 39, 0.08));
+      filter: drop-shadow(
+        0 7px 22px rgba(17, 24, 39, 0.08)
+      );
     }
 
     .donut svg {
@@ -98,28 +96,30 @@
       overflow: visible;
     }
 
-    .donut-ring {
+    /*
+      هر چهار بخش در یک مسیر مشترک قرار دارند.
+
+      کل دایره = 360 درجه
+      فاصله‌ها = 4 × 5 = 20 درجه
+      فضای رنگی = 340 درجه
+
+      نسبت رنگ‌ها:
+      عیار = 204°
+      آوند = 68°
+      فزر = 34°
+      سهام = 34°
+    */
+
+    .donut-segment {
       fill: none;
       stroke-width: 48;
       stroke-linecap: butt;
+      shape-rendering: geometricPrecision;
     }
 
-    /*
-      جداکننده‌های سفید ۵ پیکسلی
-
-      این خطوط روی کل ضخامت حلقه کشیده می‌شوند،
-      بنابراین فاصله در قسمت داخلی و خارجی
-      دایره یکسان و دقیقاً ۵px است.
-    */
-
-    .donut-gap {
-      fill: none;
-      stroke: #ffffff;
-      stroke-width: 5;
-      stroke-linecap: butt;
-    }
-
-    /* فضای خالی وسط نمودار */
+    /* =========================
+       وسط سفید نمودار
+    ========================= */
 
     .donut::after {
       content: "";
@@ -129,7 +129,7 @@
       width: 124px;
       height: 124px;
 
-      background: #ffffff;
+      background: #fff;
 
       border-radius: 50%;
 
@@ -143,8 +143,6 @@
 
       pointer-events: none;
     }
-
-    /* نوشته وسط نمودار */
 
     .donut-center {
       position: absolute;
@@ -177,13 +175,13 @@
 
     .donut-center .year {
       font-size: 16px;
-
       color: #f97316;
-
       margin-top: -2px;
     }
 
-    /* توضیحات پایین نمودار */
+    /* =========================
+       راهنمای نمودار
+    ========================= */
 
     .legend {
       display: flex;
@@ -459,7 +457,6 @@
 
     .amount {
       font-weight: 800;
-
       color: #ea580c;
     }
 
@@ -484,7 +481,7 @@
     }
 
     /* =========================
-       دکمه نوبیتکس
+       نوبیتکس
     ========================= */
 
     .button-with-icon {
@@ -587,13 +584,11 @@
 
       h1 {
         font-size: 27px;
-
         margin-bottom: 32px;
       }
 
       .card {
         padding: 19px 15px;
-
         border-radius: 18px;
       }
 
@@ -603,7 +598,6 @@
 
       ol li {
         font-size: 14px;
-
         padding: 10px;
       }
 
@@ -623,8 +617,6 @@
 <body>
 
   <div class="container">
-
-    <!-- عنوان -->
 
     <h1>
       آموزش بورس
@@ -649,105 +641,69 @@
             aria-label="نمودار پرتفوی سال ۱۴۰۵">
 
             <!--
-              حلقه رنگی اصلی
+              مسیرها با pathLength=360
+              بنابراین تمام اعداد مستقیماً درجه هستند.
 
-              ۶۰٪ عیار
-              ۲۰٪ آوند
-              ۱۰٪ فزر
-              ۱۰٪ سهام
+              رنگ‌ها:
+              204° + 68° + 34° + 34° = 340°
+
+              فاصله‌های سفید:
+              5° + 5° + 5° + 5° = 20°
+
+              مجموع = 360°
             -->
 
+            <!-- عیار: 204° -->
             <circle
-              class="donut-ring"
+              class="donut-segment"
               cx="110"
               cy="110"
               r="86"
+              pathLength="360"
               stroke="#f5c542"
-              stroke-dasharray="324.21 540.35"
+              stroke-dasharray="204 156"
               stroke-dashoffset="0"
               transform="rotate(-90 110 110)">
             </circle>
 
+            <!-- آوند: شروع بعد از ۵° فاصله -->
             <circle
-              class="donut-ring"
+              class="donut-segment"
               cx="110"
               cy="110"
               r="86"
+              pathLength="360"
               stroke="#3b82f6"
-              stroke-dasharray="108.07 540.35"
-              stroke-dashoffset="-324.21"
+              stroke-dasharray="68 292"
+              stroke-dashoffset="-209"
               transform="rotate(-90 110 110)">
             </circle>
 
+            <!-- فزر: شروع بعد از ۵° فاصله -->
             <circle
-              class="donut-ring"
+              class="donut-segment"
               cx="110"
               cy="110"
               r="86"
+              pathLength="360"
               stroke="#8b5a2b"
-              stroke-dasharray="54.04 540.35"
-              stroke-dashoffset="-432.28"
+              stroke-dasharray="34 326"
+              stroke-dashoffset="-282"
               transform="rotate(-90 110 110)">
             </circle>
 
+            <!-- سهام: شروع بعد از ۵° فاصله -->
             <circle
-              class="donut-ring"
+              class="donut-segment"
               cx="110"
               cy="110"
               r="86"
+              pathLength="360"
               stroke="#ef4444"
-              stroke-dasharray="54.04 540.35"
-              stroke-dashoffset="-486.32"
+              stroke-dasharray="34 326"
+              stroke-dashoffset="-321"
               transform="rotate(-90 110 110)">
             </circle>
-
-            <!--
-              جداکننده‌های واقعی ۵ پیکسلی
-
-              این خطوط شعاعی هستند و کل ضخامت
-              حلقه را قطع می‌کنند؛ بنابراین فاصله
-              در داخل و خارج حلقه یکسان است.
-            -->
-
-            <!-- جداکننده اول -->
-            <line
-              class="donut-gap"
-              x1="110"
-              y1="0"
-              x2="110"
-              y2="48"
-              transform="rotate(114 110 110)">
-            </line>
-
-            <!-- جداکننده دوم -->
-            <line
-              class="donut-gap"
-              x1="110"
-              y1="0"
-              x2="110"
-              y2="48"
-              transform="rotate(236 110 110)">
-            </line>
-
-            <!-- جداکننده سوم -->
-            <line
-              class="donut-gap"
-              x1="110"
-              y1="0"
-              x2="110"
-              y2="48"
-              transform="rotate(297 110 110)">
-            </line>
-
-            <!-- جداکننده چهارم -->
-            <line
-              class="donut-gap"
-              x1="110"
-              y1="0"
-              x2="110"
-              y2="48"
-              transform="rotate(333 110 110)">
-            </line>
 
           </svg>
 
@@ -766,8 +722,6 @@
         </div>
 
       </div>
-
-      <!-- نام و درصدها -->
 
       <div class="legend">
 
@@ -846,7 +800,6 @@
         <ol>
 
           <li>
-
             <span>
 
               <a
@@ -862,11 +815,9 @@
               به سجام
 
             </span>
-
           </li>
 
           <li>
-
             <span>
 
               <a
@@ -882,11 +833,9 @@
               شماره موبایل در سجام
 
             </span>
-
           </li>
 
           <li>
-
             <span>
 
               <a
@@ -902,7 +851,6 @@
               کد پیگیری سجام
 
             </span>
-
           </li>
 
         </ol>
@@ -920,9 +868,7 @@
       <div class="card-header">
 
         <div class="card-icon">
-
           <i class="fa-solid fa-users"></i>
-
         </div>
 
         <h2>
@@ -930,9 +876,7 @@
         </h2>
 
         <div class="card-arrow">
-
           <i class="fa-solid fa-chevron-down"></i>
-
         </div>
 
       </div>
@@ -942,7 +886,6 @@
         <ol>
 
           <li>
-
             <span>
 
               <a
@@ -958,11 +901,9 @@
               در سامانه دارا
 
             </span>
-
           </li>
 
           <li>
-
             <span>
 
               <a
@@ -978,7 +919,6 @@
               به سامانه دارا
 
             </span>
-
           </li>
 
         </ol>
@@ -996,9 +936,7 @@
       <div class="card-header">
 
         <div class="card-icon">
-
           <i class="fa-solid fa-list-check"></i>
-
         </div>
 
         <h2>
@@ -1006,9 +944,7 @@
         </h2>
 
         <div class="card-arrow">
-
           <i class="fa-solid fa-chevron-down"></i>
-
         </div>
 
       </div>
@@ -1018,7 +954,6 @@
         <ol>
 
           <li>
-
             <span>
 
               <a
@@ -1034,51 +969,33 @@
               در کارگزاری مفید
 
             </span>
-
           </li>
 
           <li>
-
             <span>
-
               فعال‌سازی خرید عیار (طلا) به‌جای دریافت سود ریالی در مانده حساب (صندوق حامی)
-
             </span>
-
           </li>
 
           <li>
-
             <span>
-
               فعال‌سازی خرید اتوماتیک عرضه اولیه
-
             </span>
-
           </li>
 
           <li>
-
             <span>
-
               دریافت مفید کارت
-
             </span>
-
           </li>
 
           <li>
-
             <span>
-
               دریافت جت کارت
-
             </span>
-
           </li>
 
           <li>
-
             <span>
 
               حفظ روزانه حداقل موجودی
@@ -1090,7 +1007,6 @@
               در قدرت خرید
 
             </span>
-
           </li>
 
         </ol>
@@ -1108,9 +1024,7 @@
       <div class="card-header">
 
         <div class="card-icon">
-
           <i class="fa-solid fa-chart-line"></i>
-
         </div>
 
         <h2>
@@ -1118,9 +1032,7 @@
         </h2>
 
         <div class="card-arrow">
-
           <i class="fa-solid fa-chevron-down"></i>
-
         </div>
 
       </div>
@@ -1130,7 +1042,6 @@
         <ol>
 
           <li>
-
             <span>
 
               روزانه عیار
@@ -1140,11 +1051,9 @@
               </span>
 
             </span>
-
           </li>
 
           <li>
-
             <span>
 
               روزانه صندوق امید توسعه
@@ -1154,17 +1063,12 @@
               </span>
 
             </span>
-
           </li>
 
           <li>
-
             <span>
-
-              همه عرضه‌ اولیه ها
-
+              همه عرضه اولیه‌ها
             </span>
-
           </li>
 
         </ol>
@@ -1172,8 +1076,6 @@
       </div>
 
     </section>
-
-    <!-- خط جداکننده -->
 
     <hr>
 
@@ -1246,10 +1148,6 @@
     </footer>
 
   </div>
-
-  <!-- =========================
-       باز و بسته شدن کارت‌ها
-  ========================= -->
 
   <script>
 
