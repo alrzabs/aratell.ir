@@ -53,6 +53,7 @@
       font-size: 14px;
     }
 
+    /* کارت */
     .card {
       width: 100%;
       background: #ffffff;
@@ -64,6 +65,11 @@
       border: 1px solid #eeeeee;
       cursor: pointer;
       transition: box-shadow 0.25s ease;
+
+      /* جلوگیری از انتخاب و هایلایت آبی هنگام لمس */
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .card:hover {
@@ -76,6 +82,8 @@
       gap: 10px;
       margin-bottom: 0;
       user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .card-icon {
@@ -89,6 +97,10 @@
       color: #f97316;
       font-size: 19px;
       flex-shrink: 0;
+
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .card h2 {
@@ -96,18 +108,27 @@
       font-size: 19px;
       color: #111827;
       flex: 1;
+
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .card-arrow {
       color: #9ca3af;
       font-size: 15px;
       transition: transform 0.3s ease;
+
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .card.open .card-arrow {
       transform: rotate(180deg);
     }
 
+    /* محتوای کارت */
     .card-content {
       max-height: 0;
       overflow: hidden;
@@ -124,6 +145,7 @@
       margin-top: 18px;
     }
 
+    /* لیست */
     ol {
       margin: 0;
       padding: 0;
@@ -148,6 +170,7 @@
       margin-bottom: 0;
     }
 
+    /* شماره‌های فارسی */
     ol li::before {
       min-width: 27px;
       height: 27px;
@@ -196,6 +219,7 @@
       color: #ea580c;
     }
 
+    /* خط جداکننده */
     hr {
       border: none;
       height: 1px;
@@ -208,6 +232,7 @@
       margin: 28px 0;
     }
 
+    /* دکمه نوبیتکس */
     .button-with-icon {
       display: flex;
       align-items: center;
@@ -240,6 +265,7 @@
       object-fit: contain;
     }
 
+    /* شبکه‌های اجتماعی */
     .social-icons {
       display: flex;
       flex-direction: row;
@@ -260,6 +286,7 @@
       transform: translateY(-3px) scale(1.08);
     }
 
+    /* موبایل */
     @media (max-width: 600px) {
 
       body {
