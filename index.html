@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,9 +8,11 @@
 
   <title>علیرضا عباسی | آموزش بورس</title>
 
+  <!-- آیکن سایت -->
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐢</text></svg>'">
 
+  <!-- فونت Vazirmatn -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -17,11 +20,13 @@
     href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -71,28 +76,46 @@
       height: 250px;
       margin: 0 auto;
       position: relative;
+
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* فقط نمودار با SVG ساخته شده تا مرزها صاف باشند */
-
     .donut {
       width: 220px;
       height: 220px;
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      filter: drop-shadow(0 7px 22px rgba(17, 24, 39, 0.08));
+
+      filter:
+        drop-shadow(0 7px 22px rgba(17, 24, 39, 0.08));
+
+      shape-rendering: geometricPrecision;
     }
 
     .donut svg {
       width: 220px;
       height: 220px;
       display: block;
+
+      overflow: visible;
+
+      shape-rendering: geometricPrecision;
     }
+
+    /*
+      محیط دایره:
+      2 × π × 86 = 540.353...
+
+      چهار فاصله دقیقاً ۲ درجه:
+      2 / 360 × 540.353 = 3.002
+
+      طول واقعی بخش‌های رنگی:
+      عیار: 60% از 352 درجه = 211.2 درجه
+      آوند: 20% از 352 درجه = 70.4 درجه
+      فزر:  10% از 352 درجه = 35.2 درجه
+      سهام: 10% از 352 درجه = 35.2 درجه
+    */
 
     .donut-track {
       fill: none;
@@ -103,22 +126,38 @@
     .donut-segment {
       fill: none;
       stroke-width: 48;
+
+      /*
+        butt باعث می‌شود هیچ‌کدام از
+        فاصله‌ها گرد و دنده‌دنده نشوند.
+      */
       stroke-linecap: butt;
+
+      shape-rendering: geometricPrecision;
     }
 
     /* فضای خالی وسط نمودار */
 
     .donut::after {
       content: "";
+
       position: absolute;
+
       width: 124px;
       height: 124px;
+
       background: #ffffff;
+
       border-radius: 50%;
+
       top: 50%;
       left: 50%;
+
       transform: translate(-50%, -50%);
-      box-shadow: 0 1px 4px rgba(17, 24, 39, 0.03);
+
+      box-shadow:
+        0 1px 4px rgba(17, 24, 39, 0.03);
+
       pointer-events: none;
     }
 
@@ -126,16 +165,26 @@
 
     .donut-center {
       position: absolute;
+
       z-index: 2;
+
       top: 50%;
       left: 50%;
+
       transform: translate(-50%, -50%);
+
       width: 120px;
+
       text-align: center;
+
       color: #374151;
+
       font-size: 13px;
+
       line-height: 1.8;
+
       font-weight: 800;
+
       pointer-events: none;
     }
 
@@ -145,7 +194,9 @@
 
     .donut-center .year {
       font-size: 16px;
+
       color: #f97316;
+
       margin-top: -2px;
     }
 
@@ -153,27 +204,39 @@
 
     .legend {
       display: flex;
+
       justify-content: center;
       align-items: center;
+
       flex-wrap: wrap;
+
       gap: 10px 20px;
+
       margin-top: 3px;
     }
 
     .legend-item {
       display: flex;
+
       align-items: center;
+
       gap: 6px;
+
       color: #374151;
+
       font-size: 12px;
+
       font-weight: 700;
     }
 
     .legend-dot {
       width: 9px;
       height: 9px;
+
       border-radius: 50%;
+
       display: inline-block;
+
       flex: 0 0 9px;
     }
 
@@ -183,67 +246,108 @@
 
     .card {
       width: 100%;
+
       background: #ffffff;
+
       border-radius: 20px;
+
       padding: 22px 20px;
+
       margin-bottom: 18px;
+
       text-align: right;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
+
+      box-shadow:
+        0 6px 22px rgba(0, 0, 0, 0.06);
+
       border: 1px solid #eeeeee;
+
       cursor: pointer;
-      transition: box-shadow 0.25s ease;
+
+      transition:
+        box-shadow 0.25s ease;
 
       -webkit-user-select: none;
       user-select: none;
+
       -webkit-tap-highlight-color: transparent;
     }
 
     .card:hover {
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
     }
 
     .card-header {
       display: flex;
+
       align-items: center;
+
       gap: 10px;
+
       margin-bottom: 0;
+
       user-select: none;
+
       -webkit-user-select: none;
+
       -webkit-tap-highlight-color: transparent;
     }
 
     .card-icon {
       width: 42px;
       height: 42px;
+
       border-radius: 12px;
+
       display: flex;
+
       align-items: center;
       justify-content: center;
+
       background: #fff1e6;
+
       color: #f97316;
+
       font-size: 19px;
+
       flex-shrink: 0;
+
       user-select: none;
+
       -webkit-user-select: none;
+
       -webkit-tap-highlight-color: transparent;
     }
 
     .card h2 {
       margin: 0;
+
       font-size: 19px;
+
       color: #111827;
+
       flex: 1;
+
       user-select: none;
+
       -webkit-user-select: none;
+
       -webkit-tap-highlight-color: transparent;
     }
 
     .card-arrow {
       color: #9ca3af;
+
       font-size: 15px;
-      transition: transform 0.3s ease;
+
+      transition:
+        transform 0.3s ease;
+
       user-select: none;
+
       -webkit-user-select: none;
+
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -257,8 +361,11 @@
 
     .card-content {
       max-height: 0;
+
       overflow: hidden;
+
       opacity: 0;
+
       transition:
         max-height 0.4s ease,
         opacity 0.25s ease,
@@ -267,7 +374,9 @@
 
     .card.open .card-content {
       max-height: 1000px;
+
       opacity: 1;
+
       margin-top: 18px;
     }
 
@@ -277,21 +386,33 @@
 
     ol {
       margin: 0;
+
       padding: 0;
+
       list-style: none;
     }
 
     ol li {
       position: relative;
+
       display: flex;
+
       align-items: flex-start;
+
       gap: 11px;
+
       margin-bottom: 13px;
+
       padding: 11px 12px;
+
       background: #fafafa;
+
       border-radius: 12px;
+
       line-height: 1.9;
+
       font-size: 14px;
+
       cursor: default;
     }
 
@@ -301,25 +422,53 @@
 
     ol li::before {
       min-width: 27px;
+
       height: 27px;
+
       border-radius: 50%;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       background: #f97316;
+
       color: #ffffff;
+
       font-size: 13px;
+
       font-weight: 700;
+
       flex-shrink: 0;
+
       margin-top: 2px;
     }
 
-    ol li:nth-child(1)::before { content: "۱"; }
-    ol li:nth-child(2)::before { content: "۲"; }
-    ol li:nth-child(3)::before { content: "۳"; }
-    ol li:nth-child(4)::before { content: "۴"; }
-    ol li:nth-child(5)::before { content: "۵"; }
-    ol li:nth-child(6)::before { content: "۶"; }
+    ol li:nth-child(1)::before {
+      content: "۱";
+    }
+
+    ol li:nth-child(2)::before {
+      content: "۲";
+    }
+
+    ol li:nth-child(3)::before {
+      content: "۳";
+    }
+
+    ol li:nth-child(4)::before {
+      content: "۴";
+    }
+
+    ol li:nth-child(5)::before {
+      content: "۵";
+    }
+
+    ol li:nth-child(6)::before {
+      content: "۶";
+    }
 
     a {
       color: #ea580c;
@@ -327,6 +476,7 @@
 
     .amount {
       font-weight: 800;
+
       color: #ea580c;
     }
 
@@ -336,7 +486,9 @@
 
     hr {
       border: none;
+
       height: 1px;
+
       background:
         linear-gradient(
           to right,
@@ -344,6 +496,7 @@
           #d1d5db,
           transparent
         );
+
       margin: 28px 0;
     }
 
@@ -353,33 +506,55 @@
 
     .button-with-icon {
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       gap: 10px;
+
       width: 100%;
+
       max-width: 310px;
+
       margin: 0 auto 28px;
+
       padding: 13px 18px;
+
       background: #ffffff;
+
       color: #111827;
+
       text-decoration: none;
+
       border: 1px solid #e5e7eb;
+
       border-radius: 14px;
+
       font-size: 14px;
+
       font-weight: 600;
-      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.06);
-      transition: all 0.25s ease;
+
+      box-shadow:
+        0 5px 16px rgba(0, 0, 0, 0.06);
+
+      transition:
+        all 0.25s ease;
     }
 
     .button-with-icon:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.09);
+
+      box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.09);
+
       background: #fffaf7;
     }
 
     .button-with-icon img {
       width: 30px;
       height: 30px;
+
       object-fit: contain;
     }
 
@@ -389,22 +564,32 @@
 
     .social-icons {
       display: flex;
+
       flex-direction: row;
+
       direction: ltr;
+
       justify-content: center;
+
       align-items: center;
+
       gap: 26px;
+
       margin-top: 5px;
     }
 
     .social-icons a {
       font-size: 29px;
+
       text-decoration: none;
-      transition: transform 0.25s ease;
+
+      transition:
+        transform 0.25s ease;
     }
 
     .social-icons a:hover {
-      transform: translateY(-3px) scale(1.08);
+      transform:
+        translateY(-3px) scale(1.08);
     }
 
     /* =========================
@@ -412,17 +597,20 @@
     ========================= */
 
     @media (max-width: 600px) {
+
       body {
         padding: 25px 12px 25px;
       }
 
       h1 {
         font-size: 27px;
+
         margin-bottom: 32px;
       }
 
       .card {
         padding: 19px 15px;
+
         border-radius: 18px;
       }
 
@@ -432,6 +620,7 @@
 
       ol li {
         font-size: 14px;
+
         padding: 10px;
       }
 
@@ -443,12 +632,16 @@
         font-size: 34px;
       }
     }
+
   </style>
+
 </head>
 
 <body>
 
   <div class="container">
+
+    <!-- عنوان -->
 
     <h1>
       آموزش بورس
@@ -468,9 +661,11 @@
 
         <div class="donut">
 
-          <svg viewBox="0 0 220 220" aria-label="نمودار پرتفوی سال ۱۴۰۵">
+          <svg
+            viewBox="0 0 220 220"
+            aria-label="نمودار پرتفوی سال ۱۴۰۵">
 
-            <!-- زمینه سفید برای فاصله بین بخش‌ها -->
+            <!-- زمینه سفید -->
             <circle
               class="donut-track"
               cx="110"
@@ -485,7 +680,7 @@
               cy="110"
               r="86"
               stroke="#f5c542"
-              stroke-dasharray="316.94 540.35"
+              stroke-dasharray="316.96 540.35"
               stroke-dashoffset="0"
               transform="rotate(-90 110 110)">
             </circle>
@@ -497,8 +692,8 @@
               cy="110"
               r="86"
               stroke="#3b82f6"
-              stroke-dasharray="105.67 540.35"
-              stroke-dashoffset="-319.94"
+              stroke-dasharray="105.66 540.35"
+              stroke-dashoffset="-319.96"
               transform="rotate(-90 110 110)">
             </circle>
 
@@ -509,8 +704,8 @@
               cy="110"
               r="86"
               stroke="#8b5a2b"
-              stroke-dasharray="52.82 540.35"
-              stroke-dashoffset="-428.61"
+              stroke-dasharray="52.83 540.35"
+              stroke-dashoffset="-428.62"
               transform="rotate(-90 110 110)">
             </circle>
 
@@ -521,8 +716,8 @@
               cy="110"
               r="86"
               stroke="#ef4444"
-              stroke-dasharray="52.82 540.35"
-              stroke-dashoffset="-484.43"
+              stroke-dasharray="52.83 540.35"
+              stroke-dashoffset="-484.45"
               transform="rotate(-90 110 110)">
             </circle>
 
@@ -544,26 +739,52 @@
 
       </div>
 
+      <!-- نام و درصدها -->
+
       <div class="legend">
 
         <div class="legend-item">
-          <span class="legend-dot" style="background:#f5c542;"></span>
+
+          <span
+            class="legend-dot"
+            style="background:#f5c542;">
+          </span>
+
           عیار ۶۰٪
+
         </div>
 
         <div class="legend-item">
-          <span class="legend-dot" style="background:#3b82f6;"></span>
+
+          <span
+            class="legend-dot"
+            style="background:#3b82f6;">
+          </span>
+
           آوند ۲۰٪
+
         </div>
 
         <div class="legend-item">
-          <span class="legend-dot" style="background:#8b5a2b;"></span>
+
+          <span
+            class="legend-dot"
+            style="background:#8b5a2b;">
+          </span>
+
           فزر ۱۰٪
+
         </div>
 
         <div class="legend-item">
-          <span class="legend-dot" style="background:#ef4444;"></span>
+
+          <span
+            class="legend-dot"
+            style="background:#ef4444;">
+          </span>
+
           سهام ۱۰٪
+
         </div>
 
       </div>
@@ -597,42 +818,63 @@
         <ol>
 
           <li>
+
             <span>
+
               <a
                 href="https://profilesejam.csdiran.ir/session"
                 target="_blank"
                 rel="noopener noreferrer"
                 onclick="event.stopPropagation();">
+
                 ثبت نام/ورود
+
               </a>
+
               به سجام
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               <a
                 href="https://profilesejam.csdiran.ir/msisdn"
                 target="_blank"
                 rel="noopener noreferrer"
-                onclick="event.stopPropagation;">
+                onclick="event.stopPropagation();">
+
                 تغییر
+
               </a>
+
               شماره موبایل در سجام
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               <a
                 href="https://profilesejam.csdiran.ir/RecoveryTraceCode"
                 target="_blank"
                 rel="noopener noreferrer"
                 onclick="event.stopPropagation();">
+
                 مشاهده
+
               </a>
+
               کد پیگیری سجام
+
             </span>
+
           </li>
 
         </ol>
@@ -650,7 +892,9 @@
       <div class="card-header">
 
         <div class="card-icon">
+
           <i class="fa-solid fa-users"></i>
+
         </div>
 
         <h2>
@@ -658,7 +902,9 @@
         </h2>
 
         <div class="card-arrow">
+
           <i class="fa-solid fa-chevron-down"></i>
+
         </div>
 
       </div>
@@ -668,29 +914,43 @@
         <ol>
 
           <li>
+
             <span>
+
               <a
                 href="https://dara.csdiran.ir/register"
                 target="_blank"
                 rel="noopener noreferrer"
                 onclick="event.stopPropagation();">
+
                 ثبت نام
+
               </a>
+
               در سامانه دارا
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               <a
                 href="https://dara.csdiran.ir/login"
                 target="_blank"
                 rel="noopener noreferrer"
                 onclick="event.stopPropagation();">
+
                 ورود
+
               </a>
+
               به سامانه دارا
+
             </span>
+
           </li>
 
         </ol>
@@ -708,7 +968,9 @@
       <div class="card-header">
 
         <div class="card-icon">
+
           <i class="fa-solid fa-list-check"></i>
+
         </div>
 
         <h2>
@@ -716,7 +978,9 @@
         </h2>
 
         <div class="card-arrow">
+
           <i class="fa-solid fa-chevron-down"></i>
+
         </div>
 
       </div>
@@ -726,50 +990,79 @@
         <ol>
 
           <li>
+
             <span>
+
               <a
                 href="https://my.emofid.com/register"
                 target="_blank"
                 rel="noopener noreferrer"
                 onclick="event.stopPropagation();">
+
                 عضویت
+
               </a>
+
               در کارگزاری مفید
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               فعال‌سازی خرید عیار (طلا) به‌جای دریافت سود ریالی در مانده حساب (صندوق حامی)
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               فعال‌سازی خرید اتوماتیک عرضه اولیه
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               دریافت مفید کارت
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               دریافت جت کارت
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               حفظ روزانه حداقل موجودی
+
               <span class="amount">
                 ۵۰٬۰۰۰٬۰۰۰ ریال
               </span>
+
               در قدرت خرید
+
             </span>
+
           </li>
 
         </ol>
@@ -787,7 +1080,9 @@
       <div class="card-header">
 
         <div class="card-icon">
+
           <i class="fa-solid fa-chart-line"></i>
+
         </div>
 
         <h2>
@@ -795,7 +1090,9 @@
         </h2>
 
         <div class="card-arrow">
+
           <i class="fa-solid fa-chevron-down"></i>
+
         </div>
 
       </div>
@@ -805,27 +1102,41 @@
         <ol>
 
           <li>
+
             <span>
+
               روزانه عیار
+
               <span class="amount">
                 (حداقل ۲۰۰ هزار تومان)
               </span>
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               روزانه صندوق امید توسعه
+
               <span class="amount">
                 (حداقل ۲۰۰ هزار تومان)
               </span>
+
             </span>
+
           </li>
 
           <li>
+
             <span>
+
               همه عرضه‌ اولیه ها
+
             </span>
+
           </li>
 
         </ol>
@@ -833,6 +1144,8 @@
       </div>
 
     </section>
+
+    <!-- خط جداکننده -->
 
     <hr>
 
@@ -911,6 +1224,7 @@
   ========================= -->
 
   <script>
+
     document
       .querySelectorAll(".card")
       .forEach(function(card) {
@@ -924,7 +1238,9 @@
           });
 
       });
+
   </script>
 
 </body>
+
 </html>
