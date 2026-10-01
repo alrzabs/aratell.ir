@@ -34,7 +34,6 @@
       margin: 0 auto;
     }
 
-    /* عنوان */
     h1 {
       margin: 10px 0 35px;
       font-size: 30px;
@@ -49,7 +48,6 @@
       font-size: 14px;
     }
 
-    /* کارت‌ها */
     .card {
       width: 100%;
       background: #ffffff;
@@ -87,16 +85,13 @@
       color: #111827;
     }
 
-    /* لیست */
     ol {
       margin: 0;
       padding: 0;
       list-style: none;
-      counter-reset: item;
     }
 
     ol li {
-      counter-increment: item;
       position: relative;
       display: flex;
       align-items: flex-start;
@@ -114,7 +109,6 @@
     }
 
     ol li::before {
-      content: counter(item);
       min-width: 27px;
       height: 27px;
       border-radius: 50%;
@@ -129,17 +123,39 @@
       margin-top: 2px;
     }
 
+    ol li:nth-child(1)::before {
+      content: "۱";
+    }
+
+    ol li:nth-child(2)::before {
+      content: "۲";
+    }
+
+    ol li:nth-child(3)::before {
+      content: "۳";
+    }
+
+    ol li:nth-child(4)::before {
+      content: "۴";
+    }
+
+    ol li:nth-child(5)::before {
+      content: "۵";
+    }
+
+    ol li:nth-child(6)::before {
+      content: "۶";
+    }
+
     a {
       color: #ea580c;
     }
 
-    /* تأکید روی اعداد */
     .amount {
       font-weight: 800;
       color: #ea580c;
     }
 
-    /* خط جداکننده */
     hr {
       border: none;
       height: 1px;
@@ -152,7 +168,6 @@
       margin: 28px 0;
     }
 
-    /* دکمه نوبیتکس */
     .button-with-icon {
       display: flex;
       align-items: center;
@@ -185,7 +200,6 @@
       object-fit: contain;
     }
 
-    /* شبکه‌های اجتماعی */
     .social-icons {
       display: flex;
       justify-content: center;
@@ -204,7 +218,6 @@
       transform: translateY(-3px) scale(1.08);
     }
 
-    /* موبایل */
     @media (max-width: 600px) {
 
       body {
@@ -251,7 +264,6 @@
       مسیر منظم برای سرمایه‌گذاری
     </div>
 
-    <!-- پیش نیازها -->
     <section class="card">
 
       <div class="card-header">
@@ -309,8 +321,6 @@
 
     </section>
 
-
-    <!-- سرمایه گذاری های منظم -->
     <section class="card">
 
       <div class="card-header">
@@ -347,11 +357,8 @@
 
     </section>
 
-
     <hr>
 
-
-    <!-- نوبیتکس -->
     <a class="button-with-icon"
       href="https://nobitex.ir/signup/?refcode=332524"
       target="_blank"
@@ -365,8 +372,6 @@
 
     </a>
 
-
-    <!-- شبکه های اجتماعی -->
     <footer>
 
       <div class="social-icons">
