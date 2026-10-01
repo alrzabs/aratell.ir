@@ -89,51 +89,34 @@
 
       filter:
         drop-shadow(0 7px 22px rgba(17, 24, 39, 0.08));
-
-      shape-rendering: geometricPrecision;
     }
 
     .donut svg {
       width: 220px;
       height: 220px;
       display: block;
-
       overflow: visible;
+    }
 
-      shape-rendering: geometricPrecision;
+    .donut-ring {
+      fill: none;
+      stroke-width: 48;
+      stroke-linecap: butt;
     }
 
     /*
-      محیط دایره:
-      2 × π × 86 = 540.353...
+      جداکننده‌های سفید ۵ پیکسلی
 
-      چهار فاصله دقیقاً ۲ درجه:
-      2 / 360 × 540.353 = 3.002
-
-      طول واقعی بخش‌های رنگی:
-      عیار: 60% از 352 درجه = 211.2 درجه
-      آوند: 20% از 352 درجه = 70.4 درجه
-      فزر:  10% از 352 درجه = 35.2 درجه
-      سهام: 10% از 352 درجه = 35.2 درجه
+      این خطوط روی کل ضخامت حلقه کشیده می‌شوند،
+      بنابراین فاصله در قسمت داخلی و خارجی
+      دایره یکسان و دقیقاً ۵px است.
     */
 
-    .donut-track {
+    .donut-gap {
       fill: none;
       stroke: #ffffff;
-      stroke-width: 48;
-    }
-
-    .donut-segment {
-      fill: none;
-      stroke-width: 48;
-
-      /*
-        butt باعث می‌شود هیچ‌کدام از
-        فاصله‌ها گرد و دنده‌دنده نشوند.
-      */
+      stroke-width: 5;
       stroke-linecap: butt;
-
-      shape-rendering: geometricPrecision;
     }
 
     /* فضای خالی وسط نمودار */
@@ -665,61 +648,106 @@
             viewBox="0 0 220 220"
             aria-label="نمودار پرتفوی سال ۱۴۰۵">
 
-            <!-- زمینه سفید -->
-            <circle
-              class="donut-track"
-              cx="110"
-              cy="110"
-              r="86">
-            </circle>
+            <!--
+              حلقه رنگی اصلی
 
-            <!-- عیار ۶۰٪ -->
+              ۶۰٪ عیار
+              ۲۰٪ آوند
+              ۱۰٪ فزر
+              ۱۰٪ سهام
+            -->
+
             <circle
-              class="donut-segment"
+              class="donut-ring"
               cx="110"
               cy="110"
               r="86"
               stroke="#f5c542"
-              stroke-dasharray="316.96 540.35"
+              stroke-dasharray="324.21 540.35"
               stroke-dashoffset="0"
               transform="rotate(-90 110 110)">
             </circle>
 
-            <!-- آوند ۲۰٪ -->
             <circle
-              class="donut-segment"
+              class="donut-ring"
               cx="110"
               cy="110"
               r="86"
               stroke="#3b82f6"
-              stroke-dasharray="105.66 540.35"
-              stroke-dashoffset="-319.96"
+              stroke-dasharray="108.07 540.35"
+              stroke-dashoffset="-324.21"
               transform="rotate(-90 110 110)">
             </circle>
 
-            <!-- فزر ۱۰٪ -->
             <circle
-              class="donut-segment"
+              class="donut-ring"
               cx="110"
               cy="110"
               r="86"
               stroke="#8b5a2b"
-              stroke-dasharray="52.83 540.35"
-              stroke-dashoffset="-428.62"
+              stroke-dasharray="54.04 540.35"
+              stroke-dashoffset="-432.28"
               transform="rotate(-90 110 110)">
             </circle>
 
-            <!-- سهام ۱۰٪ -->
             <circle
-              class="donut-segment"
+              class="donut-ring"
               cx="110"
               cy="110"
               r="86"
               stroke="#ef4444"
-              stroke-dasharray="52.83 540.35"
-              stroke-dashoffset="-484.45"
+              stroke-dasharray="54.04 540.35"
+              stroke-dashoffset="-486.32"
               transform="rotate(-90 110 110)">
             </circle>
+
+            <!--
+              جداکننده‌های واقعی ۵ پیکسلی
+
+              این خطوط شعاعی هستند و کل ضخامت
+              حلقه را قطع می‌کنند؛ بنابراین فاصله
+              در داخل و خارج حلقه یکسان است.
+            -->
+
+            <!-- جداکننده اول -->
+            <line
+              class="donut-gap"
+              x1="110"
+              y1="0"
+              x2="110"
+              y2="48"
+              transform="rotate(114 110 110)">
+            </line>
+
+            <!-- جداکننده دوم -->
+            <line
+              class="donut-gap"
+              x1="110"
+              y1="0"
+              x2="110"
+              y2="48"
+              transform="rotate(236 110 110)">
+            </line>
+
+            <!-- جداکننده سوم -->
+            <line
+              class="donut-gap"
+              x1="110"
+              y1="0"
+              x2="110"
+              y2="48"
+              transform="rotate(297 110 110)">
+            </line>
+
+            <!-- جداکننده چهارم -->
+            <line
+              class="donut-gap"
+              x1="110"
+              y1="0"
+              x2="110"
+              y2="48"
+              transform="rotate(333 110 110)">
+            </line>
 
           </svg>
 
