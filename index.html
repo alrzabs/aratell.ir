@@ -8,7 +8,7 @@
 
   <title>علیرضا عباسی | آموزش بورس</title>
 
-  <!-- آیکن سایت: لاک‌پشت سبز -->
+  <!-- آیکن سایت -->
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐢</text></svg>">
 
@@ -16,14 +16,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet"
+  <link
+    rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -57,74 +60,262 @@
       font-size: 14px;
     }
 
-    /* کارت */
+
+    /* =========================
+       نمودار پرتفوی
+    ========================= */
+
+    .portfolio-chart {
+      width: 100%;
+      margin: 0 auto 24px;
+      padding-top: 4px;
+      text-align: center;
+    }
+
+    .donut-wrap {
+      width: 250px;
+      height: 250px;
+      margin: 0 auto;
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .donut {
+      width: 220px;
+      height: 220px;
+
+      border-radius: 50%;
+
+      background:
+        conic-gradient(
+          #f5c542 0deg 216deg,
+          #3b82f6 216deg 288deg,
+          #8b5a2b 288deg 324deg,
+          #ef4444 324deg 360deg
+        );
+
+      position: relative;
+
+      box-shadow:
+        0 7px 22px rgba(17, 24, 39, 0.08);
+    }
+
+    /* فضای خالی وسط نمودار */
+
+    .donut::after {
+      content: "";
+
+      position: absolute;
+
+      width: 124px;
+      height: 124px;
+
+      background: #ffffff;
+
+      border-radius: 50%;
+
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      box-shadow:
+        0 1px 4px rgba(17, 24, 39, 0.03);
+    }
+
+    /* نوشته وسط نمودار */
+
+    .donut-center {
+      position: absolute;
+
+      z-index: 2;
+
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      width: 120px;
+
+      text-align: center;
+
+      color: #374151;
+
+      font-size: 13px;
+
+      line-height: 1.8;
+
+      font-weight: 800;
+
+      pointer-events: none;
+    }
+
+    .donut-center span {
+      display: block;
+    }
+
+    .donut-center .year {
+      font-size: 16px;
+
+      color: #f97316;
+
+      margin-top: -2px;
+    }
+
+    /* توضیحات پایین نمودار */
+
+    .legend {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 10px 20px;
+
+      margin-top: 3px;
+    }
+
+    .legend-item {
+      display: flex;
+
+      align-items: center;
+
+      gap: 6px;
+
+      color: #374151;
+
+      font-size: 12px;
+
+      font-weight: 700;
+    }
+
+    .legend-dot {
+      width: 9px;
+      height: 9px;
+
+      border-radius: 50%;
+
+      display: inline-block;
+
+      flex: 0 0 9px;
+    }
+
+
+    /* =========================
+       کارت‌ها
+    ========================= */
+
     .card {
       width: 100%;
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 22px 20px;
-      margin-bottom: 18px;
-      text-align: right;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
-      border: 1px solid #eeeeee;
-      cursor: pointer;
-      transition: box-shadow 0.25s ease;
 
-      /* جلوگیری از انتخاب و هایلایت آبی هنگام لمس */
+      background: #ffffff;
+
+      border-radius: 20px;
+
+      padding: 22px 20px;
+
+      margin-bottom: 18px;
+
+      text-align: right;
+
+      box-shadow:
+        0 6px 22px rgba(0, 0, 0, 0.06);
+
+      border: 1px solid #eeeeee;
+
+      cursor: pointer;
+
+      transition:
+        box-shadow 0.25s ease;
+
+      /* جلوگیری از انتخاب و هایلایت آبی */
+
       -webkit-user-select: none;
       user-select: none;
+
       -webkit-tap-highlight-color: transparent;
     }
 
     .card:hover {
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
     }
 
     .card-header {
       display: flex;
+
       align-items: center;
+
       gap: 10px;
+
       margin-bottom: 0;
+
       user-select: none;
+
       -webkit-user-select: none;
+
       -webkit-tap-highlight-color: transparent;
     }
 
     .card-icon {
       width: 42px;
       height: 42px;
+
       border-radius: 12px;
+
       display: flex;
+
       align-items: center;
       justify-content: center;
+
       background: #fff1e6;
+
       color: #f97316;
+
       font-size: 19px;
+
       flex-shrink: 0;
 
       user-select: none;
+
       -webkit-user-select: none;
+
       -webkit-tap-highlight-color: transparent;
     }
 
     .card h2 {
       margin: 0;
+
       font-size: 19px;
+
       color: #111827;
+
       flex: 1;
 
       user-select: none;
+
       -webkit-user-select: none;
+
       -webkit-tap-highlight-color: transparent;
     }
 
     .card-arrow {
       color: #9ca3af;
+
       font-size: 15px;
-      transition: transform 0.3s ease;
+
+      transition:
+        transform 0.3s ease;
 
       user-select: none;
+
       -webkit-user-select: none;
+
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -132,11 +323,18 @@
       transform: rotate(180deg);
     }
 
-    /* محتوای کارت */
+
+    /* =========================
+       محتوای کارت
+    ========================= */
+
     .card-content {
       max-height: 0;
+
       overflow: hidden;
+
       opacity: 0;
+
       transition:
         max-height 0.4s ease,
         opacity 0.25s ease,
@@ -145,28 +343,46 @@
 
     .card.open .card-content {
       max-height: 1000px;
+
       opacity: 1;
+
       margin-top: 18px;
     }
 
-    /* لیست */
+
+    /* =========================
+       لیست
+    ========================= */
+
     ol {
       margin: 0;
+
       padding: 0;
+
       list-style: none;
     }
 
     ol li {
       position: relative;
+
       display: flex;
+
       align-items: flex-start;
+
       gap: 11px;
+
       margin-bottom: 13px;
+
       padding: 11px 12px;
+
       background: #fafafa;
+
       border-radius: 12px;
+
       line-height: 1.9;
+
       font-size: 14px;
+
       cursor: default;
     }
 
@@ -174,19 +390,32 @@
       margin-bottom: 0;
     }
 
+
     /* شماره‌های فارسی */
+
     ol li::before {
       min-width: 27px;
+
       height: 27px;
+
       border-radius: 50%;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       background: #f97316;
+
       color: #ffffff;
+
       font-size: 13px;
+
       font-weight: 700;
+
       flex-shrink: 0;
+
       margin-top: 2px;
     }
 
@@ -214,83 +443,137 @@
       content: "۶";
     }
 
+
     a {
       color: #ea580c;
     }
 
     .amount {
       font-weight: 800;
+
       color: #ea580c;
     }
 
-    /* خط جداکننده */
+
+    /* =========================
+       خط جداکننده
+    ========================= */
+
     hr {
       border: none;
+
       height: 1px;
-      background: linear-gradient(
-        to right,
-        transparent,
-        #d1d5db,
-        transparent
-      );
+
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          #d1d5db,
+          transparent
+        );
+
       margin: 28px 0;
     }
 
-    /* دکمه نوبیتکس */
+
+    /* =========================
+       دکمه نوبیتکس
+    ========================= */
+
     .button-with-icon {
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       gap: 10px;
+
       width: 100%;
+
       max-width: 310px;
+
       margin: 0 auto 28px;
+
       padding: 13px 18px;
+
       background: #ffffff;
+
       color: #111827;
+
       text-decoration: none;
+
       border: 1px solid #e5e7eb;
+
       border-radius: 14px;
+
       font-size: 14px;
+
       font-weight: 600;
-      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.06);
-      transition: all 0.25s ease;
+
+      box-shadow:
+        0 5px 16px rgba(0, 0, 0, 0.06);
+
+      transition:
+        all 0.25s ease;
     }
 
     .button-with-icon:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.09);
+
+      box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.09);
+
       background: #fffaf7;
     }
 
     .button-with-icon img {
       width: 30px;
       height: 30px;
+
       object-fit: contain;
     }
 
-    /* شبکه‌های اجتماعی */
+
+    /* =========================
+       شبکه‌های اجتماعی
+    ========================= */
+
     .social-icons {
       display: flex;
+
       flex-direction: row;
+
       direction: ltr;
+
       justify-content: center;
+
       align-items: center;
+
       gap: 26px;
+
       margin-top: 5px;
     }
 
     .social-icons a {
       font-size: 29px;
+
       text-decoration: none;
-      transition: transform 0.25s ease;
+
+      transition:
+        transform 0.25s ease;
     }
 
     .social-icons a:hover {
-      transform: translateY(-3px) scale(1.08);
+      transform:
+        translateY(-3px) scale(1.08);
     }
 
-    /* موبایل */
+
+    /* =========================
+       موبایل
+    ========================= */
+
     @media (max-width: 600px) {
 
       body {
@@ -299,11 +582,13 @@
 
       h1 {
         font-size: 27px;
+
         margin-bottom: 32px;
       }
 
       .card {
         padding: 19px 15px;
+
         border-radius: 18px;
       }
 
@@ -313,6 +598,7 @@
 
       ol li {
         font-size: 14px;
+
         padding: 10px;
       }
 
@@ -324,21 +610,112 @@
         font-size: 34px;
       }
     }
+
   </style>
+
 </head>
+
 
 <body>
 
   <div class="container">
 
-    <h1>آموزش بورس</h1>
+
+    <!-- عنوان -->
+
+    <h1>
+      آموزش بورس
+    </h1>
 
     <div class="subtitle">
       مسیر منظم برای سرمایه‌گذاری
     </div>
 
 
-    <!-- سجام -->
+    <!-- =========================
+         نمودار پرتفوی
+    ========================= -->
+
+    <div class="portfolio-chart">
+
+      <div class="donut-wrap">
+
+        <div class="donut"></div>
+
+        <div class="donut-center">
+
+          <span>
+            پرتفوی سال
+          </span>
+
+          <span class="year">
+            ۱۴۰۵
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- نام و درصدها -->
+
+      <div class="legend">
+
+        <div class="legend-item">
+
+          <span
+            class="legend-dot"
+            style="background:#f5c542;">
+          </span>
+
+          عیار ۶۰٪
+
+        </div>
+
+
+        <div class="legend-item">
+
+          <span
+            class="legend-dot"
+            style="background:#3b82f6;">
+          </span>
+
+          آوند ۲۰٪
+
+        </div>
+
+
+        <div class="legend-item">
+
+          <span
+            class="legend-dot"
+            style="background:#8b5a2b;">
+          </span>
+
+          فزر ۱۰٪
+
+        </div>
+
+
+        <div class="legend-item">
+
+          <span
+            class="legend-dot"
+            style="background:#ef4444;">
+          </span>
+
+          سهام ۱۰٪
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         سجام
+    ========================= -->
 
     <section class="card">
 
@@ -348,7 +725,9 @@
           <i class="fa-solid fa-id-card"></i>
         </div>
 
-        <h2>سجام</h2>
+        <h2>
+          سجام
+        </h2>
 
         <div class="card-arrow">
           <i class="fa-solid fa-chevron-down"></i>
@@ -356,38 +735,71 @@
 
       </div>
 
+
       <div class="card-content">
 
         <ol>
 
           <li>
+
             <span>
-              <a href="https://profilesejam.csdiran.ir/session"
+
+              <a
+                href="https://profilesejam.csdiran.ir/session"
                 target="_blank"
                 rel="noopener noreferrer"
-                onclick="event.stopPropagation();">ثبت نام/ورود</a>
+                onclick="event.stopPropagation();">
+
+                ثبت نام/ورود
+
+              </a>
+
               به سجام
+
             </span>
+
           </li>
 
+
           <li>
+
             <span>
-              <a href="https://profilesejam.csdiran.ir/msisdn"
+
+              <a
+                href="https://profilesejam.csdiran.ir/msisdn"
                 target="_blank"
                 rel="noopener noreferrer"
-                onclick="event.stopPropagation();">تغییر</a>
+                onclick="event.stopPropagation();">
+
+                تغییر
+
+              </a>
+
               شماره موبایل در سجام
+
             </span>
+
           </li>
 
+
           <li>
+
             <span>
-              <a href="https://profilesejam.csdiran.ir/RecoveryTraceCode"
+
+              <a
+                href="https://profilesejam.csdiran.ir/RecoveryTraceCode"
                 target="_blank"
                 rel="noopener noreferrer"
-                onclick="event.stopPropagation();">مشاهده</a>
+                onclick="event.stopPropagation();">
+
+                مشاهده
+
+              </a>
+
               کد پیگیری سجام
+
             </span>
+
           </li>
 
         </ol>
@@ -397,47 +809,79 @@
     </section>
 
 
-    <!-- ذینفعان بازار سرمایه -->
+    <!-- =========================
+         ذینفعان بازار سرمایه
+    ========================= -->
 
     <section class="card">
 
       <div class="card-header">
 
         <div class="card-icon">
+
           <i class="fa-solid fa-users"></i>
+
         </div>
 
-        <h2>ذینفعان بازار سرمایه (دارا)</h2>
+        <h2>
+          ذینفعان بازار سرمایه (دارا)
+        </h2>
 
         <div class="card-arrow">
+
           <i class="fa-solid fa-chevron-down"></i>
+
         </div>
 
       </div>
+
 
       <div class="card-content">
 
         <ol>
 
+
           <li>
+
             <span>
-              <a href="https://dara.csdiran.ir/register"
+
+              <a
+                href="https://dara.csdiran.ir/register"
                 target="_blank"
                 rel="noopener noreferrer"
-                onclick="event.stopPropagation();">ثبت نام</a>
+                onclick="event.stopPropagation();">
+
+                ثبت نام
+
+              </a>
+
               در سامانه دارا
+
             </span>
+
           </li>
 
+
           <li>
+
             <span>
-              <a href="https://dara.csdiran.ir/login"
+
+              <a
+                href="https://dara.csdiran.ir/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                onclick="event.stopPropagation();">ورود</a>
+                onclick="event.stopPropagation();">
+
+                ورود
+
+              </a>
+
               به سامانه دارا
+
             </span>
+
           </li>
+
 
         </ol>
 
@@ -446,69 +890,119 @@
     </section>
 
 
-    <!-- کارگزاری مفید -->
+    <!-- =========================
+         کارگزاری مفید
+    ========================= -->
 
     <section class="card">
 
       <div class="card-header">
 
         <div class="card-icon">
+
           <i class="fa-solid fa-list-check"></i>
+
         </div>
 
-        <h2>کارگزاری مفید</h2>
+        <h2>
+          کارگزاری مفید
+        </h2>
 
         <div class="card-arrow">
+
           <i class="fa-solid fa-chevron-down"></i>
+
         </div>
 
       </div>
+
 
       <div class="card-content">
 
         <ol>
 
+
           <li>
+
             <span>
-              <a href="https://my.emofid.com/register"
+
+              <a
+                href="https://my.emofid.com/register"
                 target="_blank"
                 rel="noopener noreferrer"
-                onclick="event.stopPropagation();">عضویت</a>
+                onclick="event.stopPropagation();">
+
+                عضویت
+
+              </a>
+
               در کارگزاری مفید
+
             </span>
+
           </li>
 
+
           <li>
+
             <span>
+
               فعال‌سازی خرید عیار (طلا) به‌جای دریافت سود ریالی در مانده حساب (صندوق حامی)
+
             </span>
+
           </li>
 
+
           <li>
+
             <span>
+
               فعال‌سازی خرید اتوماتیک عرضه اولیه
+
             </span>
+
           </li>
 
+
           <li>
+
             <span>
+
               دریافت مفید کارت
+
             </span>
+
           </li>
 
+
           <li>
+
             <span>
+
               دریافت جت کارت
+
             </span>
+
           </li>
 
+
           <li>
+
             <span>
+
               حفظ روزانه حداقل موجودی
-              <span class="amount">۵۰٬۰۰۰٬۰۰۰ ریال</span>
+
+              <span class="amount">
+                ۵۰٬۰۰۰٬۰۰۰ ریال
+              </span>
+
               در قدرت خرید
+
             </span>
+
           </li>
+
 
         </ol>
 
@@ -517,47 +1011,78 @@
     </section>
 
 
-    <!-- سرمایه گذاری های مستمر -->
+    <!-- =========================
+         سرمایه گذاری های مستمر
+    ========================= -->
 
     <section class="card">
 
       <div class="card-header">
 
         <div class="card-icon">
+
           <i class="fa-solid fa-chart-line"></i>
+
         </div>
 
-        <h2>سرمایه گذاری های مستمر</h2>
+        <h2>
+          سرمایه گذاری های مستمر
+        </h2>
 
         <div class="card-arrow">
+
           <i class="fa-solid fa-chevron-down"></i>
+
         </div>
 
       </div>
+
 
       <div class="card-content">
 
         <ol>
 
+
           <li>
+
             <span>
+
               روزانه عیار
-              <span class="amount">(حداقل ۲۰۰ هزار تومان)</span>
+
+              <span class="amount">
+                (حداقل ۲۰۰ هزار تومان)
+              </span>
+
             </span>
+
           </li>
 
+
           <li>
+
             <span>
+
               روزانه صندوق امید توسعه
-              <span class="amount">(حداقل ۲۰۰ هزار تومان)</span>
+
+              <span class="amount">
+                (حداقل ۲۰۰ هزار تومان)
+              </span>
+
             </span>
+
           </li>
 
+
           <li>
+
             <span>
+
               همه عرضه‌ اولیه ها
+
             </span>
+
           </li>
+
 
         </ol>
 
@@ -565,68 +1090,115 @@
 
     </section>
 
+
+    <!-- خط جداکننده -->
 
     <hr>
 
 
-    <!-- نوبیتکس -->
+    <!-- =========================
+         نوبیتکس
+    ========================= -->
 
-    <a class="button-with-icon"
+    <a
+      class="button-with-icon"
       href="https://nobitex.ir/signup/?refcode=332524"
       target="_blank"
       rel="noopener noreferrer">
+
 
       <img
         src="https://raw.githubusercontent.com/alrzabs/aratell.ir/refs/heads/main/Nobitex.png"
         alt="Nobitex Icon">
 
-      <span>ثبت نام در صرافی نوبیتکس</span>
+
+      <span>
+        ثبت نام در صرافی نوبیتکس
+      </span>
+
 
     </a>
 
 
-    <!-- شبکه‌های اجتماعی -->
+    <!-- =========================
+         شبکه‌های اجتماعی
+    ========================= -->
 
     <footer>
 
       <div class="social-icons">
 
-        <a href="https://instagram.com/mirzaalirezaabbasi"
+
+        <a
+          href="https://instagram.com/mirzaalirezaabbasi"
           target="_blank"
           title="Instagram">
-          <i class="fab fa-instagram" style="color:#e1306c;"></i>
+
+          <i
+            class="fab fa-instagram"
+            style="color:#e1306c;">
+          </i>
+
         </a>
 
-        <a href="https://t.me/CryptoMirypto"
+
+        <a
+          href="https://t.me/CryptoMirypto"
           target="_blank"
           title="Telegram">
-          <i class="fab fa-telegram" style="color:#0088cc;"></i>
+
+          <i
+            class="fab fa-telegram"
+            style="color:#0088cc;">
+          </i>
+
         </a>
 
-        <a href="https://youtube.com/@alrzabs"
+
+        <a
+          href="https://youtube.com/@alrzabs"
           target="_blank"
           title="YouTube">
-          <i class="fab fa-youtube" style="color:#ff0000;"></i>
+
+          <i
+            class="fab fa-youtube"
+            style="color:#ff0000;">
+          </i>
+
         </a>
+
 
       </div>
 
     </footer>
 
+
   </div>
 
 
-  <!-- باز و بسته شدن کارت‌ها -->
+  <!-- =========================
+       باز و بسته شدن کارت‌ها
+  ========================= -->
 
   <script>
-    document.querySelectorAll(".card").forEach(function(card) {
 
-      card.querySelector(".card-header").addEventListener("click", function() {
-        card.classList.toggle("open");
+    document
+      .querySelectorAll(".card")
+      .forEach(function(card) {
+
+        card
+          .querySelector(".card-header")
+          .addEventListener("click", function() {
+
+            card.classList.toggle("open");
+
+          });
+
       });
 
-    });
   </script>
 
+
 </body>
+
 </html>
