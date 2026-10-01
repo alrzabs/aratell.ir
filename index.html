@@ -1,28 +1,13 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-
-<head>
+<!DOCTYPE html><html lang="fa" dir="rtl"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f97316">
-
-  <title>علیرضا عباسی | آموزش بورس</title>
-
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐢</text></svg>'">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
+  <meta name="theme-color" content="#f97316">  <title>علیرضا عباسی | آموزش بورس</title>  <!-- آیکن سایت -->  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐢</text></svg>'">  <!-- فونت Vazirmatn -->  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  <link
     href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  <link
+    rel="stylesheet">  <!-- Font Awesome -->  <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  <style>
 
     * {
       box-sizing: border-box;
@@ -69,8 +54,9 @@
     }
 
     .donut-wrap {
-      width: 250px;
-      height: 250px;
+      width: min(100%, 250px);
+      aspect-ratio: 1 / 1;
+
       margin: 0 auto;
       position: relative;
 
@@ -80,8 +66,9 @@
     }
 
     .donut {
-      width: 220px;
-      height: 220px;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+
       position: relative;
 
       filter: drop-shadow(
@@ -90,49 +77,37 @@
     }
 
     .donut svg {
-      width: 220px;
-      height: 220px;
       display: block;
+
+      width: 100%;
+      height: 100%;
+
+      aspect-ratio: 1 / 1;
+
       overflow: visible;
     }
 
-    /*
-      نمودار:
-
-      ۴ بخش رنگی
-      ۴ فاصله سفید
-
-      فاصله هر بخش = ۲.۵ درجه
-
-      رنگی:
-      عیار = ۲۱۰ درجه
-      آوند = ۷۰ درجه
-      فزر = ۳۵ درجه
-      سهام = ۳۵ درجه
-
-      مجموع رنگ‌ها = ۳۵۰ درجه
-      مجموع فاصله‌ها = ۱۰ درجه
-      کل = ۳۶۰ درجه
-    */
+    .donut-track {
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 48;
+    }
 
     .donut-segment {
       fill: none;
       stroke-width: 48;
       stroke-linecap: butt;
-      shape-rendering: geometricPrecision;
     }
 
-    /* =========================
-       وسط سفید نمودار
-    ========================= */
+    /* فضای خالی وسط نمودار */
 
     .donut::after {
       content: "";
 
       position: absolute;
 
-      width: 124px;
-      height: 124px;
+      width: 56.36%;
+      aspect-ratio: 1 / 1;
 
       background: #ffffff;
 
@@ -145,9 +120,9 @@
 
       box-shadow:
         0 1px 4px rgba(17, 24, 39, 0.03);
-
-      pointer-events: none;
     }
+
+    /* نوشته وسط نمودار */
 
     .donut-center {
       position: absolute;
@@ -159,13 +134,13 @@
 
       transform: translate(-50%, -50%);
 
-      width: 120px;
+      width: 55%;
 
       text-align: center;
 
       color: #374151;
 
-      font-size: 13px;
+      font-size: clamp(11px, 3.2vw, 13px);
 
       line-height: 1.8;
 
@@ -179,14 +154,14 @@
     }
 
     .donut-center .year {
-      font-size: 16px;
+      font-size: clamp(14px, 3.8vw, 16px);
+
       color: #f97316;
+
       margin-top: -2px;
     }
 
-    /* =========================
-       راهنمای نمودار
-    ========================= */
+    /* توضیحات پایین نمودار */
 
     .legend {
       display: flex;
@@ -252,6 +227,8 @@
 
       transition:
         box-shadow 0.25s ease;
+
+      /* جلوگیری از انتخاب و هایلایت آبی */
 
       -webkit-user-select: none;
       user-select: none;
@@ -406,6 +383,8 @@
       margin-bottom: 0;
     }
 
+    /* شماره‌های فارسی */
+
     ol li::before {
       min-width: 27px;
 
@@ -462,6 +441,7 @@
 
     .amount {
       font-weight: 800;
+
       color: #ea580c;
     }
 
@@ -486,7 +466,7 @@
     }
 
     /* =========================
-       نوبیتکس
+       دکمه نوبیتکس
     ========================= */
 
     .button-with-icon {
@@ -589,11 +569,13 @@
 
       h1 {
         font-size: 27px;
+
         margin-bottom: 32px;
       }
 
       .card {
         padding: 19px 15px;
+
         border-radius: 18px;
       }
 
@@ -603,6 +585,7 @@
 
       ol li {
         font-size: 14px;
+
         padding: 10px;
       }
 
@@ -615,568 +598,571 @@
       }
     }
 
-  </style>
+  </style></head><body>  <div class="container"><!-- عنوان -->
 
-</head>
+<h1>
+  آموزش بورس
+</h1>
 
-<body>
+<div class="subtitle">
+  مسیر منظم برای سرمایه‌گذاری
+</div>
 
-  <div class="container">
+<!-- =========================
+     نمودار پرتفوی
+========================= -->
 
-    <h1>
-      آموزش بورس
-    </h1>
+<div class="portfolio-chart">
 
-    <div class="subtitle">
-      مسیر منظم برای سرمایه‌گذاری
-    </div>
+  <div class="donut-wrap">
 
-    <!-- =========================
-         نمودار پرتفوی
-    ========================= -->
+    <div class="donut">
 
-    <div class="portfolio-chart">
+      <svg
+        viewBox="0 0 220 220"
+        preserveAspectRatio="xMidYMid meet"
+        aria-label="نمودار پرتفوی">
 
-      <div class="donut-wrap">
+        <!-- زمینه سفید -->
 
-        <div class="donut">
+        <circle
+          class="donut-track"
+          cx="110"
+          cy="110"
+          r="86">
+        </circle>
 
-          <svg
-            viewBox="0 0 220 220"
-            aria-label="نمودار پرتفوی سال ۱۴۰۵">
+        <!-- عیار: ۲۱۰ درجه -->
 
-            <!--
-              هر مسیر دقیقاً بعد از فاصله قبلی شروع می‌شود.
+        <path
+          class="donut-segment"
+          stroke="#f5c542"
+          d="M 110 24 A 86 86 0 0 1 67 184.478185">
+        </path>
 
-              شروع:
-              -90°
+        <!-- آوند: ۷۰ درجه -->
 
-              عیار:
-              210°
+        <path
+          class="donut-segment"
+          stroke="#3b82f6"
+          d="M 63.792234 182.531664 A 86 86 0 0 1 26.038543 91.386193">
+        </path>
 
-              فاصله:
-              2.5°
+        <!-- فزر: ۳۵ درجه -->
 
-              آوند:
-              70°
+        <path
+          class="donut-segment"
+          stroke="#8b5a2b"
+          d="M 26.930379 87.741562 A 86 86 0 0 1 54.720266 44.120178">
+        </path>
 
-              فاصله:
-              2.5°
+        <!-- سهام: ۳۵ درجه -->
 
-              فزر:
-              35°
+        <path
+          class="donut-segment"
+          stroke="#ef4444"
+          d="M 57.646517 41.771613 A 86 86 0 0 1 106.248733 24.081853">
+        </path>
 
-              فاصله:
-              2.5°
-
-              سهام:
-              35°
-
-              فاصله پایانی:
-              2.5°
-            -->
-
-            <!-- =====================
-                 عیار
-                 210 درجه
-            ====================== -->
-
-            <path
-              class="donut-segment"
-              stroke="#f5c542"
-              d="
-                M 110 24
-                A 86 86 0 0 1 67 184.478185
-              ">
-            </path>
-
-            <!-- =====================
-                 آوند
-                 70 درجه
-            ====================== -->
-
-            <path
-              class="donut-segment"
-              stroke="#3b82f6"
-              d="
-                M 63.792234 182.531664
-                A 86 86 0 0 1 26.038543 91.386193
-              ">
-            </path>
-
-            <!-- =====================
-                 فزر
-                 35 درجه
-            ====================== -->
-
-            <path
-              class="donut-segment"
-              stroke="#8b5a2b"
-              d="
-                M 26.930379 87.741562
-                A 86 86 0 0 1 54.720266 44.120178
-              ">
-            </path>
-
-            <!-- =====================
-                 سهام
-                 35 درجه
-            ====================== -->
-
-            <path
-              class="donut-segment"
-              stroke="#ef4444"
-              d="
-                M 57.646517 41.771613
-                A 86 86 0 0 1 106.248733 24.081853
-              ">
-            </path>
-
-          </svg>
-
-        </div>
-
-        <div class="donut-center">
-
-          <span>
-            پرتفوی سال
-          </span>
-
-          <span class="year">
-            ۱۴۰۵
-          </span>
-
-        </div>
-
-      </div>
-
-      <div class="legend">
-
-        <div class="legend-item">
-
-          <span
-            class="legend-dot"
-            style="background:#f5c542;">
-          </span>
-
-          عیار ۶۰٪
-
-        </div>
-
-        <div class="legend-item">
-
-          <span
-            class="legend-dot"
-            style="background:#3b82f6;">
-          </span>
-
-          آوند ۲۰٪
-
-        </div>
-
-        <div class="legend-item">
-
-          <span
-            class="legend-dot"
-            style="background:#8b5a2b;">
-          </span>
-
-          فزر ۱۰٪
-
-        </div>
-
-        <div class="legend-item">
-
-          <span
-            class="legend-dot"
-            style="background:#ef4444;">
-          </span>
-
-          سهام ۱۰٪
-
-        </div>
-
-      </div>
+      </svg>
 
     </div>
 
-    <!-- =========================
-         سجام
-    ========================= -->
-
-    <section class="card">
-
-      <div class="card-header">
-
-        <div class="card-icon">
-          <i class="fa-solid fa-id-card"></i>
-        </div>
-
-        <h2>
-          سجام
-        </h2>
-
-        <div class="card-arrow">
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-
-      </div>
-
-      <div class="card-content">
-
-        <ol>
-
-          <li>
-            <span>
-
-              <a
-                href="https://profilesejam.csdiran.ir/session"
-                target="_blank"
-                rel="noopener noreferrer"
-                onclick="event.stopPropagation();">
-
-                ثبت نام/ورود
-
-              </a>
-
-              به سجام
-
-            </span>
-          </li>
-
-          <li>
-            <span>
-
-              <a
-                href="https://profilesejam.csdiran.ir/msisdn"
-                target="_blank"
-                rel="noopener noreferrer"
-                onclick="event.stopPropagation();">
-
-                تغییر
-
-              </a>
-
-              شماره موبایل در سجام
-
-            </span>
-          </li>
-
-          <li>
-            <span>
-
-              <a
-                href="https://profilesejam.csdiran.ir/RecoveryTraceCode"
-                target="_blank"
-                rel="noopener noreferrer"
-                onclick="event.stopPropagation();">
-
-                مشاهده
-
-              </a>
-
-              کد پیگیری سجام
-
-            </span>
-          </li>
-
-        </ol>
-
-      </div>
-
-    </section>
-
-    <!-- =========================
-         ذینفعان بازار سرمایه
-    ========================= -->
-
-    <section class="card">
-
-      <div class="card-header">
-
-        <div class="card-icon">
-          <i class="fa-solid fa-users"></i>
-        </div>
-
-        <h2>
-          ذینفعان بازار سرمایه (دارا)
-        </h2>
-
-        <div class="card-arrow">
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-
-      </div>
-
-      <div class="card-content">
-
-        <ol>
-
-          <li>
-            <span>
-
-              <a
-                href="https://dara.csdiran.ir/register"
-                target="_blank"
-                rel="noopener noreferrer"
-                onclick="event.stopPropagation();">
-
-                ثبت نام
-
-              </a>
-
-              در سامانه دارا
-
-            </span>
-          </li>
-
-          <li>
-            <span>
-
-              <a
-                href="https://dara.csdiran.ir/login"
-                target="_blank"
-                rel="noopener noreferrer"
-                onclick="event.stopPropagation();">
-
-                ورود
-
-              </a>
-
-              به سامانه دارا
-
-            </span>
-          </li>
-
-        </ol>
-
-      </div>
-
-    </section>
-
-    <!-- =========================
-         کارگزاری مفید
-    ========================= -->
-
-    <section class="card">
-
-      <div class="card-header">
-
-        <div class="card-icon">
-          <i class="fa-solid fa-list-check"></i>
-        </div>
-
-        <h2>
-          کارگزاری مفید
-        </h2>
-
-        <div class="card-arrow">
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-
-      </div>
-
-      <div class="card-content">
-
-        <ol>
-
-          <li>
-            <span>
-
-              <a
-                href="https://my.emofid.com/register"
-                target="_blank"
-                rel="noopener noreferrer"
-                onclick="event.stopPropagation();">
-
-                عضویت
-
-              </a>
-
-              در کارگزاری مفید
-
-            </span>
-          </li>
-
-          <li>
-            <span>
-              فعال‌سازی خرید عیار (طلا) به‌جای دریافت سود ریالی در مانده حساب (صندوق حامی)
-            </span>
-          </li>
-
-          <li>
-            <span>
-              فعال‌سازی خرید اتوماتیک عرضه اولیه
-            </span>
-          </li>
-
-          <li>
-            <span>
-              دریافت مفید کارت
-            </span>
-          </li>
-
-          <li>
-            <span>
-              دریافت جت کارت
-            </span>
-          </li>
-
-          <li>
-            <span>
-
-              حفظ روزانه حداقل موجودی
-
-              <span class="amount">
-                ۵۰٬۰۰۰٬۰۰۰ ریال
-              </span>
-
-              در قدرت خرید
-
-            </span>
-          </li>
-
-        </ol>
-
-      </div>
-
-    </section>
-
-    <!-- =========================
-         سرمایه گذاری های مستمر
-    ========================= -->
-
-    <section class="card">
-
-      <div class="card-header">
-
-        <div class="card-icon">
-          <i class="fa-solid fa-chart-line"></i>
-        </div>
-
-        <h2>
-          سرمایه گذاری های مستمر
-        </h2>
-
-        <div class="card-arrow">
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-
-      </div>
-
-      <div class="card-content">
-
-        <ol>
-
-          <li>
-            <span>
-
-              روزانه عیار
-
-              <span class="amount">
-                (حداقل ۲۰۰ هزار تومان)
-              </span>
-
-            </span>
-          </li>
-
-          <li>
-            <span>
-
-              روزانه صندوق امید توسعه
-
-              <span class="amount">
-                (حداقل ۲۰۰ هزار تومان)
-              </span>
-
-            </span>
-          </li>
-
-          <li>
-            <span>
-              همه عرضه اولیه‌ها
-            </span>
-          </li>
-
-        </ol>
-
-      </div>
-
-    </section>
-
-    <hr>
-
-    <!-- =========================
-         نوبیتکس
-    ========================= -->
-
-    <a
-      class="button-with-icon"
-      href="https://nobitex.ir/signup/?refcode=332524"
-      target="_blank"
-      rel="noopener noreferrer">
-
-      <img
-        src="https://raw.githubusercontent.com/alrzabs/aratell.ir/refs/heads/main/Nobitex.png"
-        alt="Nobitex Icon">
+    <div class="donut-center">
 
       <span>
-        ثبت نام در صرافی نوبیتکس
+        پرتفوی سال
       </span>
 
-    </a>
+      <span class="year">
+        ۱۴۰۵
+      </span>
 
-    <!-- =========================
-         شبکه‌های اجتماعی
-    ========================= -->
-
-    <footer>
-
-      <div class="social-icons">
-
-        <a
-          href="https://instagram.com/mirzaalirezaabbasi"
-          target="_blank"
-          title="Instagram">
-
-          <i
-            class="fab fa-instagram"
-            style="color:#e1306c;">
-          </i>
-
-        </a>
-
-        <a
-          href="https://t.me/CryptoMirypto"
-          target="_blank"
-          title="Telegram">
-
-          <i
-            class="fab fa-telegram"
-            style="color:#0088cc;">
-          </i>
-
-        </a>
-
-        <a
-          href="https://youtube.com/@alrzabs"
-          target="_blank"
-          title="YouTube">
-
-          <i
-            class="fab fa-youtube"
-            style="color:#ff0000;">
-          </i>
-
-        </a>
-
-      </div>
-
-    </footer>
+    </div>
 
   </div>
 
-  <script>
+  <!-- نام و درصدها -->
+
+  <div class="legend">
+
+    <div class="legend-item">
+
+      <span
+        class="legend-dot"
+        style="background:#f5c542;">
+      </span>
+
+      عیار ۶۰٪
+
+    </div>
+
+    <div class="legend-item">
+
+      <span
+        class="legend-dot"
+        style="background:#3b82f6;">
+      </span>
+
+      آوند ۲۰٪
+
+    </div>
+
+    <div class="legend-item">
+
+      <span
+        class="legend-dot"
+        style="background:#8b5a2b;">
+      </span>
+
+      فزر ۱۰٪
+
+    </div>
+
+    <div class="legend-item">
+
+      <span
+        class="legend-dot"
+        style="background:#ef4444;">
+      </span>
+
+      سهام ۱۰٪
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =========================
+     سجام
+========================= -->
+
+<section class="card">
+
+  <div class="card-header">
+
+    <div class="card-icon">
+      <i class="fa-solid fa-id-card"></i>
+    </div>
+
+    <h2>
+      سجام
+    </h2>
+
+    <div class="card-arrow">
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+
+  </div>
+
+  <div class="card-content">
+
+    <ol>
+
+      <li>
+
+        <span>
+
+          <a
+            href="https://profilesejam.csdiran.ir/session"
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick="event.stopPropagation();">
+
+            ثبت نام/ورود
+
+          </a>
+
+          به سجام
+
+        </span>
+
+      </li>
+
+      <li>
+
+        <span>
+
+          <a
+            href="https://profilesejam.csdiran.ir/msisdn"
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick="event.stopPropagation();">
+
+            تغییر
+
+          </a>
+
+          شماره موبایل در سجام
+
+        </span>
+
+      </li>
+
+      <li>
+
+        <span>
+
+          <a
+            href="https://profilesejam.csdiran.ir/RecoveryTraceCode"
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick="event.stopPropagation();">
+
+            مشاهده
+
+          </a>
+
+          کد پیگیری سجام
+
+        </span>
+
+      </li>
+
+    </ol>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     ذینفعان بازار سرمایه
+========================= -->
+
+<section class="card">
+
+  <div class="card-header">
+
+    <div class="card-icon">
+
+      <i class="fa-solid fa-users"></i>
+
+    </div>
+
+    <h2>
+      ذینفعان بازار سرمایه (دارا)
+    </h2>
+
+    <div class="card-arrow">
+
+      <i class="fa-solid fa-chevron-down"></i>
+
+    </div>
+
+  </div>
+
+  <div class="card-content">
+
+    <ol>
+
+      <li>
+
+        <span>
+
+          <a
+            href="https://dara.csdiran.ir/register"
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick="event.stopPropagation();">
+
+            ثبت نام
+
+          </a>
+
+          در سامانه دارا
+
+        </span>
+
+      </li>
+
+      <li>
+
+        <span>
+
+          <a
+            href="https://dara.csdiran.ir/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick="event.stopPropagation();">
+
+            ورود
+
+          </a>
+
+          به سامانه دارا
+
+        </span>
+
+      </li>
+
+    </ol>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     کارگزاری مفید
+========================= -->
+
+<section class="card">
+
+  <div class="card-header">
+
+    <div class="card-icon">
+
+      <i class="fa-solid fa-list-check"></i>
+
+    </div>
+
+    <h2>
+      کارگزاری مفید
+    </h2>
+
+    <div class="card-arrow">
+
+      <i class="fa-solid fa-chevron-down"></i>
+
+    </div>
+
+  </div>
+
+  <div class="card-content">
+
+    <ol>
+
+      <li>
+
+        <span>
+
+          <a
+            href="https://my.emofid.com/register"
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick="event.stopPropagation();">
+
+            عضویت
+
+          </a>
+
+          در کارگزاری مفید
+
+        </span>
+
+      </li>
+
+      <li>
+
+        <span>
+
+          فعال‌سازی خرید عیار (طلا) به‌جای دریافت سود ریالی در مانده حساب (صندوق حامی)
+
+        </span>
+
+      </li>
+
+      <li>
+
+        <span>
+
+          فعال‌سازی خرید اتوماتیک عرضه اولیه
+
+        </span>
+
+      </li>
+
+      <li>
+
+        <span>
+
+          دریافت مفید کارت
+
+        </span>
+
+      </li>
+
+      <li>
+
+        <span>
+
+          دریافت جت کارت
+
+        </span>
+
+      </li>
+
+      <li>
+
+        <span>
+
+          حفظ روزانه حداقل موجودی
+
+          <span class="amount">
+            ۵۰٬۰۰۰٬۰۰۰ ریال
+          </span>
+
+          در قدرت خرید
+
+        </span>
+
+      </li>
+
+    </ol>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     سرمایه گذاری های مستمر
+========================= -->
+
+<section class="card">
+
+  <div class="card-header">
+
+    <div class="card-icon">
+
+      <i class="fa-solid fa-chart-line"></i>
+
+    </div>
+
+    <h2>
+      سرمایه گذاری های مستمر
+    </h2>
+
+    <div class="card-arrow">
+
+      <i class="fa-solid fa-chevron-down"></i>
+
+    </div>
+
+  </div>
+
+  <div class="card-content">
+
+    <ol>
+
+      <li>
+
+        <span>
+
+          روزانه عیار
+
+          <span class="amount">
+            (حداقل ۲۰۰ هزار تومان)
+          </span>
+
+        </span>
+
+      </li>
+
+      <li>
+
+        <span>
+
+          روزانه صندوق امید توسعه
+
+          <span class="amount">
+            (حداقل ۲۰۰ هزار تومان)
+          </span>
+
+        </span>
+
+      </li>
+
+      <li>
+
+        <span>
+
+          همه عرضه‌ اولیه ها
+
+        </span>
+
+      </li>
+
+    </ol>
+
+  </div>
+
+</section>
+
+<!-- خط جداکننده -->
+
+<hr>
+
+<!-- =========================
+     نوبیتکس
+========================= -->
+
+<a
+  class="button-with-icon"
+  href="https://nobitex.ir/signup/?refcode=332524"
+  target="_blank"
+  rel="noopener noreferrer">
+
+  <img
+    src="https://raw.githubusercontent.com/alrzabs/aratell.ir/refs/heads/main/Nobitex.png"
+    alt="Nobitex Icon">
+
+  <span>
+    ثبت نام در صرافی نوبیتکس
+  </span>
+
+</a>
+
+<!-- =========================
+     شبکه‌های اجتماعی
+========================= -->
+
+<footer>
+
+  <div class="social-icons">
+
+    <a
+      href="https://instagram.com/mirzaalirezaabbasi"
+      target="_blank"
+      title="Instagram">
+
+      <i
+        class="fab fa-instagram"
+        style="color:#e1306c;">
+      </i>
+
+    </a>
+
+    <a
+      href="https://t.me/CryptoMirypto"
+      target="_blank"
+      title="Telegram">
+
+      <i
+        class="fab fa-telegram"
+        style="color:#0088cc;">
+      </i>
+
+    </a>
+
+    <a
+      href="https://youtube.com/@alrzabs"
+      target="_blank"
+      title="YouTube">
+
+      <i
+        class="fab fa-youtube"
+        style="color:#ff0000;">
+      </i>
+
+    </a>
+
+  </div>
+
+</footer>
+
+  </div>  <!-- =========================
+       باز و بسته شدن کارت‌ها
+  ========================= -->  <script>
 
     document
       .querySelectorAll(".card")
@@ -1192,8 +1178,4 @@
 
       });
 
-  </script>
-
-</body>
-
-</html>
+  </script></body></html>
