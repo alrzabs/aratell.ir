@@ -1,13 +1,27 @@
-<!DOCTYPE html><html lang="fa" dir="rtl"><head>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f97316">  <title>علیرضا عباسی | آموزش بورس</title>  <!-- آیکن سایت -->  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐢</text></svg>'">  <!-- فونت Vazirmatn -->  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  <link
+  <meta name="theme-color" content="#f97316">
+
+  <title>علیرضا عباسی | آموزش بورس</title>
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐢</text></svg>'">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
     href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">  <!-- Font Awesome -->  <link
+    rel="stylesheet">
+
+  <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  <style>
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
 
     * {
       box-sizing: border-box;
@@ -54,8 +68,8 @@
     }
 
     .donut-wrap {
-      width: min(100%, 250px);
-      aspect-ratio: 1 / 1;
+      width: 250px;
+      height: 250px;
 
       margin: 0 auto;
       position: relative;
@@ -66,8 +80,8 @@
     }
 
     .donut {
-      width: 100%;
-      aspect-ratio: 1 / 1;
+      width: 250px;
+      height: 250px;
 
       position: relative;
 
@@ -79,10 +93,8 @@
     .donut svg {
       display: block;
 
-      width: 100%;
-      height: 100%;
-
-      aspect-ratio: 1 / 1;
+      width: 250px;
+      height: 250px;
 
       overflow: visible;
     }
@@ -107,7 +119,7 @@
       position: absolute;
 
       width: 56.36%;
-      aspect-ratio: 1 / 1;
+      height: 56.36%;
 
       background: #ffffff;
 
@@ -140,7 +152,7 @@
 
       color: #374151;
 
-      font-size: clamp(11px, 3.2vw, 13px);
+      font-size: 13px;
 
       line-height: 1.8;
 
@@ -154,7 +166,7 @@
     }
 
     .donut-center .year {
-      font-size: clamp(14px, 3.8vw, 16px);
+      font-size: 16px;
 
       color: #f97316;
 
@@ -227,8 +239,6 @@
 
       transition:
         box-shadow 0.25s ease;
-
-      /* جلوگیری از انتخاب و هایلایت آبی */
 
       -webkit-user-select: none;
       user-select: none;
@@ -382,8 +392,6 @@
     ol li:last-child {
       margin-bottom: 0;
     }
-
-    /* شماره‌های فارسی */
 
     ol li::before {
       min-width: 27px;
@@ -557,612 +565,513 @@
         translateY(-3px) scale(1.08);
     }
 
-    /* =========================
-       موبایل
-    ========================= */
+  </style>
+</head>
 
-    @media (max-width: 600px) {
+<body>
 
-      body {
-        padding: 25px 12px 25px;
-      }
+  <div class="container">
 
-      h1 {
-        font-size: 27px;
+    <!-- عنوان -->
 
-        margin-bottom: 32px;
-      }
+    <h1>
+      آموزش بورس
+    </h1>
 
-      .card {
-        padding: 19px 15px;
+    <div class="subtitle">
+      مسیر منظم برای سرمایه‌گذاری
+    </div>
 
-        border-radius: 18px;
-      }
+    <!-- =========================
+         نمودار پرتفوی
+    ========================= -->
 
-      .card h2 {
-        font-size: 18px;
-      }
+    <div class="portfolio-chart">
 
-      ol li {
-        font-size: 14px;
+      <div class="donut-wrap">
 
-        padding: 10px;
-      }
+        <div class="donut">
 
-      .button-with-icon {
-        max-width: 300px;
-      }
+          <svg
+            viewBox="0 0 220 220"
+            preserveAspectRatio="xMidYMid meet"
+            aria-label="نمودار پرتفوی">
 
-      .social-icons a {
-        font-size: 34px;
-      }
-    }
+            <!-- زمینه سفید -->
 
-  </style></head><body>  <div class="container"><!-- عنوان -->
+            <circle
+              class="donut-track"
+              cx="110"
+              cy="110"
+              r="86">
+            </circle>
 
-<h1>
-  آموزش بورس
-</h1>
+            <!--
+              ۶۰٪
+              ۲۰٪
+              ۱۰٪
+              ۱۰٪
 
-<div class="subtitle">
-  مسیر منظم برای سرمایه‌گذاری
-</div>
+              بدون فاصله بین رنگ‌ها
+            -->
 
-<!-- =========================
-     نمودار پرتفوی
-========================= -->
+            <circle
+              class="donut-segment"
+              stroke="#f5c542"
+              cx="110"
+              cy="110"
+              r="86"
+              stroke-dasharray="324.09 216.06"
+              stroke-dashoffset="0"
+              transform="rotate(-90 110 110)">
+            </circle>
 
-<div class="portfolio-chart">
+            <circle
+              class="donut-segment"
+              stroke="#3b82f6"
+              cx="110"
+              cy="110"
+              r="86"
+              stroke-dasharray="108.03 432.12"
+              stroke-dashoffset="-324.09"
+              transform="rotate(-90 110 110)">
+            </circle>
 
-  <div class="donut-wrap">
+            <circle
+              class="donut-segment"
+              stroke="#8b5a2b"
+              cx="110"
+              cy="110"
+              r="86"
+              stroke-dasharray="54.015 486.135"
+              stroke-dashoffset="-432.12"
+              transform="rotate(-90 110 110)">
+            </circle>
 
-    <div class="donut">
+            <circle
+              class="donut-segment"
+              stroke="#ef4444"
+              cx="110"
+              cy="110"
+              r="86"
+              stroke-dasharray="54.015 486.135"
+              stroke-dashoffset="-486.135"
+              transform="rotate(-90 110 110)">
+            </circle>
 
-      <svg
-        viewBox="0 0 220 220"
-        preserveAspectRatio="xMidYMid meet"
-        aria-label="نمودار پرتفوی">
+          </svg>
 
-        <!-- زمینه سفید -->
+        </div>
 
-        <circle
-          class="donut-track"
-          cx="110"
-          cy="110"
-          r="86">
-        </circle>
+        <div class="donut-center">
 
-        <!-- عیار: ۲۱۰ درجه -->
+          <span>
+            پرتفوی سال
+          </span>
 
-        <path
-          class="donut-segment"
-          stroke="#f5c542"
-          d="M 110 24 A 86 86 0 0 1 67 184.478185">
-        </path>
+          <span class="year">
+            ۱۴۰۵
+          </span>
 
-        <!-- آوند: ۷۰ درجه -->
+        </div>
 
-        <path
-          class="donut-segment"
-          stroke="#3b82f6"
-          d="M 63.792234 182.531664 A 86 86 0 0 1 26.038543 91.386193">
-        </path>
+      </div>
 
-        <!-- فزر: ۳۵ درجه -->
+      <!-- نام و درصدها -->
 
-        <path
-          class="donut-segment"
-          stroke="#8b5a2b"
-          d="M 26.930379 87.741562 A 86 86 0 0 1 54.720266 44.120178">
-        </path>
+      <div class="legend">
 
-        <!-- سهام: ۳۵ درجه -->
+        <div class="legend-item">
 
-        <path
-          class="donut-segment"
-          stroke="#ef4444"
-          d="M 57.646517 41.771613 A 86 86 0 0 1 106.248733 24.081853">
-        </path>
+          <span
+            class="legend-dot"
+            style="background:#f5c542;">
+          </span>
 
-      </svg>
+          عیار ۶۰٪
+
+        </div>
+
+        <div class="legend-item">
+
+          <span
+            class="legend-dot"
+            style="background:#3b82f6;">
+          </span>
+
+          آوند ۲۰٪
+
+        </div>
+
+        <div class="legend-item">
+
+          <span
+            class="legend-dot"
+            style="background:#8b5a2b;">
+          </span>
+
+          فزر ۱۰٪
+
+        </div>
+
+        <div class="legend-item">
+
+          <span
+            class="legend-dot"
+            style="background:#ef4444;">
+          </span>
+
+          سهام ۱۰٪
+
+        </div>
+
+      </div>
 
     </div>
 
-    <div class="donut-center">
+    <!-- =========================
+         سجام
+    ========================= -->
+
+    <section class="card">
+
+      <div class="card-header">
+
+        <div class="card-icon">
+          <i class="fa-solid fa-id-card"></i>
+        </div>
+
+        <h2>
+          سجام
+        </h2>
+
+        <div class="card-arrow">
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+      </div>
+
+      <div class="card-content">
+
+        <ol>
+
+          <li>
+            <span>
+              <a
+                href="https://profilesejam.csdiran.ir/session"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="event.stopPropagation();">
+                ثبت نام/ورود
+              </a>
+              به سجام
+            </span>
+          </li>
+
+          <li>
+            <span>
+              <a
+                href="https://profilesejam.csdiran.ir/msisdn"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="event.stopPropagation;">
+                تغییر
+              </a>
+              شماره موبایل در سجام
+            </span>
+          </li>
+
+          <li>
+            <span>
+              <a
+                href="https://profilesejam.csdiran.ir/RecoveryTraceCode"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="event.stopPropagation();">
+                مشاهده
+              </a>
+              کد پیگیری سجام
+            </span>
+          </li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         ذینفعان بازار سرمایه
+    ========================= -->
+
+    <section class="card">
+
+      <div class="card-header">
+
+        <div class="card-icon">
+          <i class="fa-solid fa-users"></i>
+        </div>
+
+        <h2>
+          ذینفعان بازار سرمایه (دارا)
+        </h2>
+
+        <div class="card-arrow">
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+      </div>
+
+      <div class="card-content">
+
+        <ol>
+
+          <li>
+            <span>
+              <a
+                href="https://dara.csdiran.ir/register"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="event.stopPropagation();">
+                ثبت نام
+              </a>
+              در سامانه دارا
+            </span>
+          </li>
+
+          <li>
+            <span>
+              <a
+                href="https://dara.csdiran.ir/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="event.stopPropagation();">
+                ورود
+              </a>
+              به سامانه دارا
+            </span>
+          </li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         کارگزاری مفید
+    ========================= -->
+
+    <section class="card">
+
+      <div class="card-header">
+
+        <div class="card-icon">
+          <i class="fa-solid fa-list-check"></i>
+        </div>
+
+        <h2>
+          کارگزاری مفید
+        </h2>
+
+        <div class="card-arrow">
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+      </div>
+
+      <div class="card-content">
+
+        <ol>
+
+          <li>
+            <span>
+              <a
+                href="https://my.emofid.com/register"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="event.stopPropagation();">
+                عضویت
+              </a>
+              در کارگزاری مفید
+            </span>
+          </li>
+
+          <li>
+            <span>
+              فعال‌سازی خرید عیار (طلا) به‌جای دریافت سود ریالی در مانده حساب (صندوق حامی)
+            </span>
+          </li>
+
+          <li>
+            <span>
+              فعال‌سازی خرید اتوماتیک عرضه اولیه
+            </span>
+          </li>
+
+          <li>
+            <span>
+              دریافت مفید کارت
+            </span>
+          </li>
+
+          <li>
+            <span>
+              دریافت جت کارت
+            </span>
+          </li>
+
+          <li>
+            <span>
+              حفظ روزانه حداقل موجودی
+              <span class="amount">
+                ۵۰٬۰۰۰٬۰۰۰ ریال
+              </span>
+              در قدرت خرید
+            </span>
+          </li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         سرمایه گذاری های مستمر
+    ========================= -->
+
+    <section class="card">
+
+      <div class="card-header">
+
+        <div class="card-icon">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+
+        <h2>
+          سرمایه گذاری های مستمر
+        </h2>
+
+        <div class="card-arrow">
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+      </div>
+
+      <div class="card-content">
+
+        <ol>
+
+          <li>
+            <span>
+              روزانه عیار
+              <span class="amount">
+                (حداقل ۲۰۰ هزار تومان)
+              </span>
+            </span>
+          </li>
+
+          <li>
+            <span>
+              روزانه صندوق امید توسعه
+              <span class="amount">
+                (حداقل ۲۰۰ هزار تومان)
+              </span>
+            </span>
+          </li>
+
+          <li>
+            <span>
+              همه عرضه‌ اولیه ها
+            </span>
+          </li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+    <!-- خط جداکننده -->
+
+    <hr>
+
+    <!-- =========================
+         نوبیتکس
+    ========================= -->
+
+    <a
+      class="button-with-icon"
+      href="https://nobitex.ir/signup/?refcode=332524"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      <img
+        src="https://raw.githubusercontent.com/alrzabs/aratell.ir/refs/heads/main/Nobitex.png"
+        alt="Nobitex Icon">
 
       <span>
-        پرتفوی سال
+        ثبت نام در صرافی نوبیتکس
       </span>
-
-      <span class="year">
-        ۱۴۰۵
-      </span>
-
-    </div>
-
-  </div>
-
-  <!-- نام و درصدها -->
-
-  <div class="legend">
-
-    <div class="legend-item">
-
-      <span
-        class="legend-dot"
-        style="background:#f5c542;">
-      </span>
-
-      عیار ۶۰٪
-
-    </div>
-
-    <div class="legend-item">
-
-      <span
-        class="legend-dot"
-        style="background:#3b82f6;">
-      </span>
-
-      آوند ۲۰٪
-
-    </div>
-
-    <div class="legend-item">
-
-      <span
-        class="legend-dot"
-        style="background:#8b5a2b;">
-      </span>
-
-      فزر ۱۰٪
-
-    </div>
-
-    <div class="legend-item">
-
-      <span
-        class="legend-dot"
-        style="background:#ef4444;">
-      </span>
-
-      سهام ۱۰٪
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- =========================
-     سجام
-========================= -->
-
-<section class="card">
-
-  <div class="card-header">
-
-    <div class="card-icon">
-      <i class="fa-solid fa-id-card"></i>
-    </div>
-
-    <h2>
-      سجام
-    </h2>
-
-    <div class="card-arrow">
-      <i class="fa-solid fa-chevron-down"></i>
-    </div>
-
-  </div>
-
-  <div class="card-content">
-
-    <ol>
-
-      <li>
-
-        <span>
-
-          <a
-            href="https://profilesejam.csdiran.ir/session"
-            target="_blank"
-            rel="noopener noreferrer"
-            onclick="event.stopPropagation();">
-
-            ثبت نام/ورود
-
-          </a>
-
-          به سجام
-
-        </span>
-
-      </li>
-
-      <li>
-
-        <span>
-
-          <a
-            href="https://profilesejam.csdiran.ir/msisdn"
-            target="_blank"
-            rel="noopener noreferrer"
-            onclick="event.stopPropagation();">
-
-            تغییر
-
-          </a>
-
-          شماره موبایل در سجام
-
-        </span>
-
-      </li>
-
-      <li>
-
-        <span>
-
-          <a
-            href="https://profilesejam.csdiran.ir/RecoveryTraceCode"
-            target="_blank"
-            rel="noopener noreferrer"
-            onclick="event.stopPropagation();">
-
-            مشاهده
-
-          </a>
-
-          کد پیگیری سجام
-
-        </span>
-
-      </li>
-
-    </ol>
-
-  </div>
-
-</section>
-
-<!-- =========================
-     ذینفعان بازار سرمایه
-========================= -->
-
-<section class="card">
-
-  <div class="card-header">
-
-    <div class="card-icon">
-
-      <i class="fa-solid fa-users"></i>
-
-    </div>
-
-    <h2>
-      ذینفعان بازار سرمایه (دارا)
-    </h2>
-
-    <div class="card-arrow">
-
-      <i class="fa-solid fa-chevron-down"></i>
-
-    </div>
-
-  </div>
-
-  <div class="card-content">
-
-    <ol>
-
-      <li>
-
-        <span>
-
-          <a
-            href="https://dara.csdiran.ir/register"
-            target="_blank"
-            rel="noopener noreferrer"
-            onclick="event.stopPropagation();">
-
-            ثبت نام
-
-          </a>
-
-          در سامانه دارا
-
-        </span>
-
-      </li>
-
-      <li>
-
-        <span>
-
-          <a
-            href="https://dara.csdiran.ir/login"
-            target="_blank"
-            rel="noopener noreferrer"
-            onclick="event.stopPropagation();">
-
-            ورود
-
-          </a>
-
-          به سامانه دارا
-
-        </span>
-
-      </li>
-
-    </ol>
-
-  </div>
-
-</section>
-
-<!-- =========================
-     کارگزاری مفید
-========================= -->
-
-<section class="card">
-
-  <div class="card-header">
-
-    <div class="card-icon">
-
-      <i class="fa-solid fa-list-check"></i>
-
-    </div>
-
-    <h2>
-      کارگزاری مفید
-    </h2>
-
-    <div class="card-arrow">
-
-      <i class="fa-solid fa-chevron-down"></i>
-
-    </div>
-
-  </div>
-
-  <div class="card-content">
-
-    <ol>
-
-      <li>
-
-        <span>
-
-          <a
-            href="https://my.emofid.com/register"
-            target="_blank"
-            rel="noopener noreferrer"
-            onclick="event.stopPropagation();">
-
-            عضویت
-
-          </a>
-
-          در کارگزاری مفید
-
-        </span>
-
-      </li>
-
-      <li>
-
-        <span>
-
-          فعال‌سازی خرید عیار (طلا) به‌جای دریافت سود ریالی در مانده حساب (صندوق حامی)
-
-        </span>
-
-      </li>
-
-      <li>
-
-        <span>
-
-          فعال‌سازی خرید اتوماتیک عرضه اولیه
-
-        </span>
-
-      </li>
-
-      <li>
-
-        <span>
-
-          دریافت مفید کارت
-
-        </span>
-
-      </li>
-
-      <li>
-
-        <span>
-
-          دریافت جت کارت
-
-        </span>
-
-      </li>
-
-      <li>
-
-        <span>
-
-          حفظ روزانه حداقل موجودی
-
-          <span class="amount">
-            ۵۰٬۰۰۰٬۰۰۰ ریال
-          </span>
-
-          در قدرت خرید
-
-        </span>
-
-      </li>
-
-    </ol>
-
-  </div>
-
-</section>
-
-<!-- =========================
-     سرمایه گذاری های مستمر
-========================= -->
-
-<section class="card">
-
-  <div class="card-header">
-
-    <div class="card-icon">
-
-      <i class="fa-solid fa-chart-line"></i>
-
-    </div>
-
-    <h2>
-      سرمایه گذاری های مستمر
-    </h2>
-
-    <div class="card-arrow">
-
-      <i class="fa-solid fa-chevron-down"></i>
-
-    </div>
-
-  </div>
-
-  <div class="card-content">
-
-    <ol>
-
-      <li>
-
-        <span>
-
-          روزانه عیار
-
-          <span class="amount">
-            (حداقل ۲۰۰ هزار تومان)
-          </span>
-
-        </span>
-
-      </li>
-
-      <li>
-
-        <span>
-
-          روزانه صندوق امید توسعه
-
-          <span class="amount">
-            (حداقل ۲۰۰ هزار تومان)
-          </span>
-
-        </span>
-
-      </li>
-
-      <li>
-
-        <span>
-
-          همه عرضه‌ اولیه ها
-
-        </span>
-
-      </li>
-
-    </ol>
-
-  </div>
-
-</section>
-
-<!-- خط جداکننده -->
-
-<hr>
-
-<!-- =========================
-     نوبیتکس
-========================= -->
-
-<a
-  class="button-with-icon"
-  href="https://nobitex.ir/signup/?refcode=332524"
-  target="_blank"
-  rel="noopener noreferrer">
-
-  <img
-    src="https://raw.githubusercontent.com/alrzabs/aratell.ir/refs/heads/main/Nobitex.png"
-    alt="Nobitex Icon">
-
-  <span>
-    ثبت نام در صرافی نوبیتکس
-  </span>
-
-</a>
-
-<!-- =========================
-     شبکه‌های اجتماعی
-========================= -->
-
-<footer>
-
-  <div class="social-icons">
-
-    <a
-      href="https://instagram.com/mirzaalirezaabbasi"
-      target="_blank"
-      title="Instagram">
-
-      <i
-        class="fab fa-instagram"
-        style="color:#e1306c;">
-      </i>
 
     </a>
 
-    <a
-      href="https://t.me/CryptoMirypto"
-      target="_blank"
-      title="Telegram">
+    <!-- =========================
+         شبکه‌های اجتماعی
+    ========================= -->
 
-      <i
-        class="fab fa-telegram"
-        style="color:#0088cc;">
-      </i>
+    <footer>
 
-    </a>
+      <div class="social-icons">
 
-    <a
-      href="https://youtube.com/@alrzabs"
-      target="_blank"
-      title="YouTube">
+        <a
+          href="https://instagram.com/mirzaalirezaabbasi"
+          target="_blank"
+          title="Instagram">
 
-      <i
-        class="fab fa-youtube"
-        style="color:#ff0000;">
-      </i>
+          <i
+            class="fab fa-instagram"
+            style="color:#e1306c;">
+          </i>
 
-    </a>
+        </a>
+
+        <a
+          href="https://t.me/CryptoMirypto"
+          target="_blank"
+          title="Telegram">
+
+          <i
+            class="fab fa-telegram"
+            style="color:#0088cc;">
+          </i>
+
+        </a>
+
+        <a
+          href="https://youtube.com/@alrzabs"
+          target="_blank"
+          title="YouTube">
+
+          <i
+            class="fab fa-youtube"
+            style="color:#ff0000;">
+          </i>
+
+        </a>
+
+      </div>
+
+    </footer>
 
   </div>
 
-</footer>
-
-  </div>  <!-- =========================
+  <!-- =========================
        باز و بسته شدن کارت‌ها
-  ========================= -->  <script>
+  ========================= -->
+
+  <script>
 
     document
       .querySelectorAll(".card")
@@ -1178,4 +1087,7 @@
 
       });
 
-  </script></body></html>
+  </script>
+
+</body>
+</html>
